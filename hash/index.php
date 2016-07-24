@@ -137,7 +137,7 @@
 						echo '<tr><td><p><strong>KAT URL: </strong></td><td><a href="'.$data['torrent_info_url'].'" target="_blank">'.$data['torrent_info_url'].'</a></td></tr>';
 						echo '<tr><td><p><strong>TorCache URL: </strong></td><td><a href="'.$data['torrent_download_url'].'" target="_blank">'.$data['torrent_download_url'].'</a></td></tr>';
 						echo '<tr><td><p><strong>Torrage URL: </strong></td><td><a href="http://torrage.info/torrent.php?h='.$data['torrent_info_hash'].'" target="_blank">http://torrage.info/torrent.php?h='.$data['torrent_info_hash'].'</a></td></tr>';
-						echo '<tr><td><p><strong>iTorrents URL: </strong></td><td><a href="http://itorrents.org/torrent/'.$data['torrent_info_hash'].'" target="_blank">http://itorrents.org/torrent/'.$data['torrent_info_hash'].'</a></td></tr>';
+						echo '<tr><td><p><strong>iTorrents URL: </strong></td><td><a href="http://itorrents.org/torrent/'.$data['torrent_info_hash'].'.torrent" target="_blank">http://itorrents.org/torrent/'.$data['torrent_info_hash'].'.torrent</a></td></tr>';
 						echo '<tr><td><p><strong>Magnet Link: </strong></td><td><a href="magnet:?xt=urn:btih:'.$data['torrent_info_hash'].'&dn='.$data['torrent_name'].'"<span>magnet:?xt=urn:btih:'.$data['torrent_info_hash'].'&dn='.$data['torrent_name'].'</span></a></td></tr>';
 						echo '<tr><td><p><strong>File Count: </strong></td><td>'.$data['files_count'].'</td></tr>';
 						echo '<tr><td><p><strong>Size: </strong></td><td>'.(round($data['size'] / pow(1024, 2), 2)).'MB</td></tr>';
