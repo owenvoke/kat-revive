@@ -13,7 +13,9 @@
 			$data['torrent_category'] = $row['torrent_category'];
 			$data['verified'] = $row['verified'];
 			$data['torrent_info_url'] = $row['torrent_info_url'];
-			$data['torrent_download_url'] = $row['torrent_download_url'];
+			$data['torcache_download_url'] = $row['torrent_download_url'];
+			$data['torrage_download_url'] = 'http://torrage.info/torrent.php?h='.$data['torrent_info_hash'];
+			$data['itorrents_download_url'] = 'http://itorrents.org/torrent/'.$data['torrent_info_hash'];
 			$data['files_count'] = $row['files_count'];
 			$data['category_id'] = $row['category_id'];
 			$data['size'] = $row['size'];
