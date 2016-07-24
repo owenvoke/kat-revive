@@ -16,9 +16,9 @@
 			<?php
 				include('funcs.php');
 				$db_conn = \funcs\Functions::conn();
-				$sql = "SELECT count(*) FROM t_collection";
+				$sql = "SELECT count(*) as count FROM t_collection";
 				$total_torrents = \funcs\Functions::query($db_conn, $sql);
-				if ($total_torrents) {
+				if (mysqli_fetch_assoc($total_torrents)['count'] > 0) {
 					?>
 						<div class="alert alert-success">
 							<p>

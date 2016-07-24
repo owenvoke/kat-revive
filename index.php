@@ -12,12 +12,27 @@
 	</head>
 	<body>
 		<?php
-		include('nav.php'); 
+		include('funcs.php');
+		$db_conn = \funcs\Functions::conn();
+		$sql = "SELECT count(*) as count FROM t_collection";
+		$total_torrents = \funcs\Functions::query($db_conn, $sql);
+
+		include('nav.php');
+		if (mysqli_fetch_assoc($total_torrents)['count'] < 1) {
+			?>
+			<div class="container" style="margin-top: 5%;">
+				<div class="alert alert-danger">
+					<h2>No data has been added to the tables.</h2>
+					<p>Please run the installer <a href="/install.php" class="alert-link">here</a></p>
+				</div>
+			</div>
+			<?php
+		}
 		if (isset($_GET['s']) && !empty($_GET['s'])) {
 			$startPoint = $_GET['s'];
 		}
 		else {
-			$startPoint = "2";
+			$startPoint = "0";
 		}
 		?>
 		<div class="container">
@@ -38,17 +53,17 @@
 					</ul>
 				</nav>
 			</div>
-			<div class="table-responsive"> 
+			<div class="table-responsive">
 				<table class="table table-condensed">
 					<th></th><th>Hash</th><th>Name</th><th>Category</th><th colspan="2">URLs</th>
 					<?php
-					
+
 					require_once('funcs.php');
-					
+
 					$db_conn = \funcs\Functions::conn();
 					$sql     = "SELECT * FROM t_collection LIMIT " . mysqli_real_escape_string($db_conn, $startPoint) . ", 20";
 					$res     = \funcs\Functions::query($db_conn, $sql);
-					
+
 					while ($row = mysqli_fetch_assoc($res)) {
 						$data[$row['torrent_info_hash']]['torrent_info_hash'] = $row['torrent_info_hash'];
 						$data[$row['torrent_info_hash']]['torrent_name'] = $row['torrent_name'];
@@ -59,9 +74,11 @@
 					}
 					foreach ($data as $arrM) {
 						//var_dump($arrM);
-						echo '<tr><td>';
-					    if ($arrM['verified']) { echo '<span class="glyphicon glyphicon-star-empty"></span>'; } else { echo ''; }
-						echo '</td><td>' . $arrM['torrent_info_hash'] . '</td><td><a href="hash/?h=' . $arrM['torrent_info_hash'] . '" target="_blank">' . $arrM['torrent_name'] . '</a></td><td>' . $arrM['torrent_category'] . '</td><td><a href="magnet:?xt=urn:btih:' . $arrM['torrent_info_hash'] . '&dn=' . urlencode($arrM['torrent_name']) . '&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce" target="_blank" title="Download magnet"><span class="glyphicon glyphicon-cloud-download"></span></a></td><td><a href="' . $arrM['torrent_download_url'] . '" target="_blank" title="Download .torrent from TorCache"><span class="glyphicon glyphicon-floppy-save"></span></a></td></tr>';
+						if ($arrM['torrent_info_hash'] !== '') {
+							echo '<tr><td>';
+						    if ($arrM['verified']) { echo '<span class="glyphicon glyphicon-star-empty"></span>'; } else { echo ''; }
+							echo '</td><td>' . $arrM['torrent_info_hash'] . '</td><td><a href="hash/?h=' . $arrM['torrent_info_hash'] . '" target="_blank">' . $arrM['torrent_name'] . '</a></td><td>' . $arrM['torrent_category'] . '</td><td><a href="magnet:?xt=urn:btih:' . $arrM['torrent_info_hash'] . '&dn=' . urlencode($arrM['torrent_name']) . '&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce" target="_blank" title="Download magnet"><span class="glyphicon glyphicon-cloud-download"></span></a></td><td><a href="' . $arrM['torrent_download_url'] . '" target="_blank" title="Download .torrent from TorCache"><span class="glyphicon glyphicon-floppy-save"></span></a></td></tr>';
+						}
 					}
 					?>
 				</table>
