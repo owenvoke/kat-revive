@@ -11,6 +11,7 @@
 		<script async src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
 	</head>
 	<body>
+		<?php include('nav.php'); ?>
 		<div style="width: 70%; margin: auto; padding: auto; margin-top: 5%;">
 			<?php
 			require_once('funcs.php');

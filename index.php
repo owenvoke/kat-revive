@@ -11,20 +11,39 @@
 		<script async src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
 	</head>
 	<body>
+		<?php
+		include('nav.php'); 
+		if (isset($_GET['s']) && !empty($_GET['s'])) {
+			$startPoint = $_GET['s'];
+		}
+		else {
+			$startPoint = "2";
+		}
+		?>
 		<div class="container">
+			<div class="text-center">
+				<nav>
+					<ul class="pagination">
+						<li>
+							<a href="?s=<?php if ($startPoint > 20) { echo $startPoint - 20; } else { echo '0'; } ?>" aria-label="Previous">
+								<span aria-hidden="true">&laquo;</span>
+							</a>
+						</li>
+						<li><a href="#">Currently On Point: <?php echo $startPoint; ?></a></li>
+						<li>
+							<a href="?s=<?php echo $startPoint + 20; ?>" aria-label="Next">
+								<span aria-hidden="true">&raquo;</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
 			<div class="table-responsive"> 
 				<table class="table table-condensed">
 					<th></th><th>Hash</th><th>Name</th><th>Category</th><th colspan="2">URLs</th>
 					<?php
 					
 					require_once('funcs.php');
-					
-					if (isset($_GET['s']) && !empty($_GET['s'])) {
-						$startPoint = $_GET['s'];
-					}
-					else {
-						$startPoint = "2";
-					}
 					
 					$db_conn = \funcs\Functions::conn();
 					$sql     = "SELECT * FROM t_collection LIMIT " . mysqli_real_escape_string($db_conn, $startPoint) . ", 20";
@@ -46,6 +65,23 @@
 					}
 					?>
 				</table>
+			</div>
+			<div class="text-center">
+				<nav>
+					<ul class="pagination">
+						<li>
+							<a href="?s=<?php if ($startPoint > 20) { echo $startPoint - 20; } else { echo '0'; } ?>" aria-label="Previous">
+								<span aria-hidden="true">&laquo;</span>
+							</a>
+						</li>
+						<li><a href="#">Currently On Point: <?php echo $startPoint; ?></a></li>
+						<li>
+							<a href="?s=<?php echo $startPoint + 20; ?>" aria-label="Next">
+								<span aria-hidden="true">&raquo;</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
 			</div>
 		</div>
 	</body>
