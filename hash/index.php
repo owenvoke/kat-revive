@@ -7,7 +7,7 @@
 		<title>KatRevive</title>
 		<link rel="shortcut icon" href="favicon.png">
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-		<script async src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/rocketscript"></script>
+		<script async src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
 		<script async src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
 	</head>
 	<body>
@@ -16,14 +16,14 @@
 			<?php
 
 				include ('../funcs.php');
-				
+
 				if (isset($_GET['h']) && !empty($_GET['h']) && strlen($_GET['h']) == 40) {
 					$startPoint = $_GET['h'];
-				
+
 					$db_conn = \funcs\Functions::conn();
 					$sql     = "SELECT * FROM t_collection WHERE torrent_info_hash='".mysqli_real_escape_string($db_conn, $_GET['h'])."'";
 					$res     = \funcs\Functions::query($db_conn, $sql);
-				 
+
 					while ($row = mysqli_fetch_assoc($res)) {
 						$data['torrent_info_hash'] = $row['torrent_info_hash'];
 						$data['torrent_name'] = $row['torrent_name'];
@@ -63,7 +63,7 @@
 						';
 					exit();
 				}
-				
+
 				?>
 		</div>
 	</body>
