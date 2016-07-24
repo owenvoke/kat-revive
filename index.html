@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Kat Revive by PXgamer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Kat Revive</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/PXgamer/KatRevive" class="btn">View on GitHub</a>
+      <a href="https://github.com/PXgamer/KatRevive/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/PXgamer/KatRevive/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="katrevive" class="anchor" href="#katrevive" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>KatRevive</h1>
+
+<h2>
+<a id="about" class="anchor" href="#about" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About</h2>
+
+<p>KatRevive is a project to allow revival of the Kickass Torrents API dumps.</p>
+
+<h2>
+<a id="files" class="anchor" href="#files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Files</h2>
+
+<h4>
+<a id="create_dbsql" class="anchor" href="#create_dbsql" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>create_db.sql</h4>
+
+<p>This is the MySQL code needed to generate the database. By default, the username is <em>root</em> and the password is blank.<br>
+To use this, copy it into a MySQL terminal instance, or copy it into PHPMyAdmin or your respective MySQL manager.  </p>
+
+<h4>
+<a id="indexphp" class="anchor" href="#indexphp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>index.php</h4>
+
+<p>This is the root file, and the file that you will use to view torrents. You can access other torrents by using the <code>GET</code> parameter of <code>s</code>.<br>
+This layout shows 5 columns.</p>
+
+<ul>
+<li>Verified: Displayed as a star</li>
+<li>Hash: The info hash for that specific torrent, this is unique in the db</li>
+<li>Name: The name of the torrent</li>
+<li>Category: What main category it was in on KAT, the DB also contains the <code>category_id</code> which allows for subcategories as well</li>
+<li>URLs: The torrent file link, and the magnet link</li>
+</ul>
+
+<h4>
+<a id="installphp" class="anchor" href="#installphp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>install.php</h4>
+
+<p>The installer file. Just run this, and select an import type.<br>
+<em>Please note, these will need to be downloaded beforehand and added to the <code>import_lists</code> folder.</em>  </p>
+
+<p>There are 2 example <a href="https://github.com/PXgamer/KatRevive/tree/master/import_lists">import files</a> with the same torrent, to demonstrate. The actual imports can be downloaded elsewhere.</p>
+
+<p>Just select the type you want to import, and hit the import button.</p>
+
+<h4>
+<a id="import_db_listphp" class="anchor" href="#import_db_listphp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>import_db_list.php</h4>
+
+<p>This shouldn't be accessed from anywhere, it will automatically be called by using the <code>install.php</code> file.<br>
+Please don't run this more than once, and please note that it <strong>will</strong> be slow when installing.</p>
+
+<h4>
+<a id="apiindexphp" class="anchor" href="#apiindexphp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>api/index.php</h4>
+
+<p>The API, will create a JSON formatted array of torrents. Is limited to 20 at a time, and can be browsed using the <code>GET</code> parameter <code>s</code>.</p>
+
+<h4>
+<a id="faviconpng" class="anchor" href="#faviconpng" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>favicon.png</h4>
+
+<p>Just ignore this, it's the favicon to load when using the site in a browser.</p>
+
+<h4>
+<a id="funcsphp" class="anchor" href="#funcsphp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>funcs.php</h4>
+
+<p>No need to touch this file, unless changing the db details. It's self contained and used in the other files.</p>
+
+<h2>
+<a id="instructions" class="anchor" href="#instructions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Instructions</h2>
+
+<p>Clone to your local or remote server using <code>git clone https://github.com/PXgamer/KatRevive.git</code>.  </p>
+
+<p>I have set this up to use MySQL with a username of <code>root</code> and no password. This can be changed in the <code>funcs.php</code> file.   </p>
+
+<p>Next, copy the code out of the <code>create_db.sql</code> file and run this in your MySQL administration tool. For example, in PHPMyAdmin, navigate to the SQL tab, and paste it there. Then run this. </p>
+
+<p>Copy your <code>hourlydump.txt</code> and/or <code>dailydump.txt</code> file(s) to the <code>import_lists</code> folder.  </p>
+
+<p>Open the <code>install.php</code> file in a browser, and select the file you'd like to install. Then click <code>import</code>.  </p>
+
+<p>This can take a while depending on the number of torrents your file contains, I tested with 3 Million+ torrents in the data dump I had, which took roughly 10 minutes.  </p>
+
+<h2>
+<a id="the-databasetable" class="anchor" href="#the-databasetable" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Database/Table</h2>
+
+<p>The database is called <code>kat_db</code> by default and contains a single table <code>t_collection</code>. This table contains 10 columns, as follows:  </p>
+
+<ul>
+<li>torrent_info_hash</li>
+<li>torrent_name</li>
+<li>torrent_category</li>
+<li>torrent_info_url</li>
+<li>torrent_download_url</li>
+<li>size</li>
+<li>category_id</li>
+<li>files_count</li>
+<li>upload_date</li>
+<li>verified</li>
+</ul>
+
+<h2>
+<a id="other-features" class="anchor" href="#other-features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Other Features</h2>
+
+<p>The API: <a href="https://github.com/PXgamer/KatRevive/tree/master/api">https://github.com/PXgamer/KatRevive/tree/master/api</a><br>
+Hash Searching: <a href="https://github.com/PXgamer/KatRevive/tree/master/hash">https://github.com/PXgamer/KatRevive/tree/master/hash</a>  </p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/PXgamer/KatRevive">Kat Revive</a> is maintained by <a href="https://github.com/PXgamer">PXgamer</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
