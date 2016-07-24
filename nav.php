@@ -14,9 +14,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="hash/">Hash Search</a></li>
-        <li><a href="api/">API Search</a></li>
-		<form class="navbar-form navbar-left" role="search" action="hash" method="get">
+        <li><a href="/hash/">Hash Search</a></li>
+        <li><a href="/api/">API Search</a></li>
+		<form class="navbar-form navbar-left" role="search" action="/hash" method="get">
 			<div class="form-group">
 				<input name="h" type="text" class="form-control" placeholder="Search">
 			</div>
