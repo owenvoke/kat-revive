@@ -52,6 +52,20 @@
 			'%'. mysqli_real_escape_string($db_conn, $_GET['q']) .'%'
 		)
 		);
+		
+		try {
+			$ttc = \funcs\Functions::query(
+				$db_conn,
+				sprintf(
+					"SELECT * FROM t_collection WHERE torrent_name LIKE '%s'".$wheres,
+					'%'. mysqli_real_escape_string($db_conn, $_GET['q']) .'%'
+				)
+			);
+		}
+		catch (Exception $e) {
+			$ttc = false;
+		}
+		$tt = mysqli_num_rows($ttc);
 		?>
 		<div class="container">
 			<div class="text-center">
@@ -81,7 +95,7 @@
 				</nav>
 			</div>
 					<?php
-					if (mysqli_num_rows($res) > 0) { ?>
+					if ($tt > 0) { ?>
 			<div class="table-responsive">
 				<table class="table table-condensed">
 					<th></th><th>Hash</th><th>Name</th><th>Category</th><th colspan="2">URLs</th>
