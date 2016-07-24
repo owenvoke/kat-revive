@@ -15,10 +15,15 @@
 		include('funcs.php');
 		$db_conn = \funcs\Functions::conn();
 		$sql = "SELECT count(*) as count FROM t_collection";
-		$total_torrents = \funcs\Functions::query($db_conn, $sql);
+		try {
+			$total_torrents = \funcs\Functions::query($db_conn, $sql);
+		}
+		catch (Exception $e) {
+			$total_torrents = false;
+		}
 
 		include('nav.php');
-		if (mysqli_fetch_assoc($total_torrents)['count'] < 1) {
+		if (!$total_torrents && mysqli_fetch_assoc($total_torrents)['count'] < 1) {
 			?>
 			<div class="container" style="margin-top: 5%;">
 				<div class="alert alert-danger">
@@ -27,6 +32,7 @@
 				</div>
 			</div>
 			<?php
+			exit();
 		}
 		if (isset($_GET['s']) && !empty($_GET['s'])) {
 			$startPoint = $_GET['s'];
@@ -34,6 +40,7 @@
 		else {
 			$startPoint = "0";
 		}
+		$tt = mysqli_fetch_assoc($total_torrents)['count'];
 		?>
 		<div class="container">
 			<div class="text-center">
@@ -44,7 +51,7 @@
 								<span aria-hidden="true">&laquo;</span>
 							</a>
 						</li>
-						<li><a href="#">Currently On Point: <?php echo $startPoint; ?></a></li>
+						<li><a href="#">Currently On Point: <?php echo $startPoint; ?> of <?php echo $tt; ?></a></li>
 						<li>
 							<a href="?s=<?php echo $startPoint + 20; ?>" aria-label="Next">
 								<span aria-hidden="true">&raquo;</span>
@@ -91,7 +98,7 @@
 								<span aria-hidden="true">&laquo;</span>
 							</a>
 						</li>
-						<li><a href="#">Currently On Point: <?php echo $startPoint; ?></a></li>
+						<li><a href="#">Currently On Point: <?php echo $startPoint; ?> of <?php echo $tt; ?></a></li>
 						<li>
 							<a href="?s=<?php echo $startPoint + 20; ?>" aria-label="Next">
 								<span aria-hidden="true">&raquo;</span>
