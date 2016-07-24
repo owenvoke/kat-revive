@@ -44,7 +44,7 @@
 		if (isset($_GET['c'])) {
 			$wheres .= ' AND category_id="'.(int)$_GET['c'].'"';
 		}
-		
+
 		$res = \funcs\Functions::query(
 		$db_conn,
 		sprintf(
@@ -52,7 +52,7 @@
 			'%'. mysqli_real_escape_string($db_conn, $_GET['q']) .'%'
 		)
 		);
-		
+
 		try {
 			$ttc = \funcs\Functions::query(
 				$db_conn,
@@ -71,7 +71,7 @@
 			<div class="text-center">
 				<form role="search" action="/search" method="get">
 					<div class="form-group">
-						<input name="q" type="text" class="form-control" placeholder="Search">
+						<input name="q" type="text" class="form-control" placeholder="Search" value="<?php if (isset($_GET['q'])) { echo $_GET['q']; } ?>">
 					</div>
 					<button type="submit" class="btn btn-default">Search Torrent</button>
 				</form>
@@ -81,13 +81,13 @@
 				<nav>
 					<ul class="pagination">
 						<li>
-							<a href="?s=<?php if ($startPoint > 20) { echo $startPoint - 20; } else { echo '0'; } ?>" aria-label="Previous">
+							<a href="?s=<?php if ($startPoint > 20) { echo $startPoint - 20; } else { echo '0'; } if (isset($_GET['q'])) {echo '&q='.urlencode($_GET['q']) ; } if (isset($_GET['c'])) { echo '&c='.urlencode($_GET['c']);}?>" aria-label="Previous">
 								<span aria-hidden="true">&laquo;</span>
 							</a>
 						</li>
-						<li><a href="#">Currently On Point: <?php echo $startPoint; ?> of <?php echo $tt; ?></a></li>
+						<li><span>Currently On Point: <?php echo $startPoint; ?> of <?php echo $tt; ?></span></li>
 						<li>
-							<a href="?s=<?php echo $startPoint + 20; ?>" aria-label="Next">
+							<a href="?s=<?php echo $startPoint + 20; if (isset($_GET['q'])) {echo '&q='.urlencode($_GET['q']) ; } if (isset($_GET['c'])) { echo '&c='.urlencode($_GET['c']);}?>" aria-label="Next">
 								<span aria-hidden="true">&raquo;</span>
 							</a>
 						</li>
@@ -117,7 +117,7 @@
 							}
 						}
 						?>
-						
+
 				</table>
 			</div>
 						<?php
@@ -135,13 +135,13 @@
 				<nav>
 					<ul class="pagination">
 						<li>
-							<a href="?s=<?php if ($startPoint > 20) { echo $startPoint - 20; } else { echo '0'; } ?>" aria-label="Previous">
+							<a href="?s=<?php if ($startPoint > 20) { echo $startPoint - 20; } else { echo '0'; } if (isset($_GET['q'])) {echo '&q='.urlencode($_GET['q']) ; } if (isset($_GET['c'])) { echo '&c='.urlencode($_GET['c']);}?>" aria-label="Previous">
 								<span aria-hidden="true">&laquo;</span>
 							</a>
 						</li>
-						<li><a href="#">Currently On Point: <?php echo $startPoint; ?> of <?php echo $tt; ?></a></li>
+						<li><span>Currently On Point: <?php echo $startPoint; ?> of <?php echo $tt; ?></span></li>
 						<li>
-							<a href="?s=<?php echo $startPoint + 20; ?>" aria-label="Next">
+							<a href="?s=<?php echo $startPoint + 20; if (isset($_GET['q'])) {echo '&q='.urlencode($_GET['q']) ; } if (isset($_GET['c'])) { echo '&c='.urlencode($_GET['c']);}?>" aria-label="Next">
 								<span aria-hidden="true">&raquo;</span>
 							</a>
 						</li>
