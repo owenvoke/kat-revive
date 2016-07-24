@@ -63,3 +63,7 @@ The database is called `kat_db` by default and contains a single table `t_collec
 - files_count
 - upload_date
 - verified
+
+## Other Features
+The API: https://github.com/PXgamer/KatRevive/tree/master/api  
+Hash Searching: https://github.com/PXgamer/KatRevive/tree/master/hash  
