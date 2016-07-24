@@ -42,7 +42,7 @@
 						//var_dump($arrM);
 						echo '<tr><td>';
 					    if ($arrM['verified']) { echo '<span class="glyphicon glyphicon-star-empty"></span>'; } else { echo ''; }
-						echo '</td><td>' . $arrM['torrent_info_hash'] . '</td><td>' . $arrM['torrent_name'] . '</td><td>' . $arrM['torrent_category'] . '</td><td><a href="magnet:?xt=urn:btih:' . $arrM['torrent_info_hash'] . '&dn=' . urlencode($arrM['torrent_name']) . '&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce" target="_blank" title="Download magnet"><span class="glyphicon glyphicon-cloud-download"></span></a></td><td><a href="' . $arrM['torrent_download_url'] . '" target="_blank" title="Download .torrent from TorCache"><span class="glyphicon glyphicon-floppy-save"></span></a></td></tr>';
+						echo '</td><td>' . $arrM['torrent_info_hash'] . '</td><td><a href="hash/?h=' . $arrM['torrent_info_hash'] . '" target="_blank">' . $arrM['torrent_name'] . '</a></td><td>' . $arrM['torrent_category'] . '</td><td><a href="magnet:?xt=urn:btih:' . $arrM['torrent_info_hash'] . '&dn=' . urlencode($arrM['torrent_name']) . '&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce" target="_blank" title="Download magnet"><span class="glyphicon glyphicon-cloud-download"></span></a></td><td><a href="' . $arrM['torrent_download_url'] . '" target="_blank" title="Download .torrent from TorCache"><span class="glyphicon glyphicon-floppy-save"></span></a></td></tr>';
 					}
 					?>
 				</table>
