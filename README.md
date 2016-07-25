@@ -75,7 +75,10 @@ MySQL Import Generation: https://github.com/PXgamer/KatRevive/tree/master/sql_im
 
 ## Gallery
 #### Main Page
-![Index Image](https://pximg.xyz/images/ee2b0357f515d530c7c46acc71d6d287.png)
-![Individual Torrent Pages](https://pximg.xyz/images/fd181e06a5f5d4de7f0d6199e1a22c35.png)
-![API Results](https://pximg.xyz/images/4dd5c7daf945c110945dcda6fad03dd9.png)
+![Index Image](https://pximg.xyz/images/ee2b0357f515d530c7c46acc71d6d287.png)  
+#### Individual Torrent Pages
+![Individual Torrent Pages](https://pximg.xyz/images/fd181e06a5f5d4de7f0d6199e1a22c35.png)  
+#### API Results
+![API Results](https://pximg.xyz/images/4dd5c7daf945c110945dcda6fad03dd9.png)  
+#### KAT Header Theme
 ![KAT Header Theme](https://pximg.xyz/images/5bc7939c5fd0e74703b7b7e289dcab2e.png)
