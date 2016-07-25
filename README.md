@@ -66,4 +66,5 @@ The database is called `kat_db` by default and contains a single table `t_collec
 
 ## Other Features
 The API: https://github.com/PXgamer/KatRevive/tree/master/api  
+Main Search: https://github.com/PXgamer/KatRevive/tree/master/search  
 Hash Searching: https://github.com/PXgamer/KatRevive/tree/master/hash  
