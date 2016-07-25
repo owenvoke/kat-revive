@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="initial-scale=1.0,width=device-width">
 		<meta name="HandheldFriendly" content="true"/>
-		<title>KatRevive</title>
+		<title>KATRevive</title>
 		<link rel="shortcut icon" href="favicon.png">
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
 		<script async src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
@@ -13,6 +13,7 @@
 	<body>
 		<?php
 		include('../funcs.php');
+		include('../categories.php');
 		$db_conn = \funcs\Functions::conn();
 		$sql = "SELECT count(*) as count FROM t_collection";
 		try {
@@ -21,7 +22,6 @@
 		catch (Exception $e) {
 			$total_torrents = false;
 		}
-
 		include('../nav.php');
 		if (!$total_torrents && mysqli_fetch_assoc($total_torrents)['count'] < 1) {
 			?>
@@ -41,10 +41,9 @@
 			$startPoint = "0";
 		}
 		$wheres = '';
-		if (isset($_GET['c'])) {
+		if (isset($_GET['c']) && $_GET['c'] != '') {
 			$wheres .= ' AND category_id="'.(int)$_GET['c'].'"';
 		}
-
 		if (isset($_GET['q']) && $_GET['q'] !== '') {
 			$query = $_GET['q'];
 			$res = \funcs\Functions::query(
@@ -70,7 +69,7 @@
 			$res = \funcs\Functions::query($db_conn, "SELECT * FROM t_collection".$wheres." LIMIT " . mysqli_real_escape_string($db_conn, $startPoint) . ", 20");
 			$ttc = \funcs\Functions::query($db_conn, "SELECT * FROM t_collection".$wheres." LIMIT " . mysqli_real_escape_string($db_conn, $startPoint) . ", 20");
 		}
-		
+
 		$tt = mysqli_num_rows($ttc);
 		?>
 		<div class="container">
@@ -79,7 +78,17 @@
 					<div class="form-group">
 						<input name="q" type="text" class="form-control" placeholder="Search" value="<?php if (isset($_GET['q'])) { echo $_GET['q']; } ?>">
 					</div>
-					<button type="submit" class="btn btn-default">Search Torrent</button>
+					<div class="form-group">
+						<select name="c" class="form-control">
+						<?php
+						echo '<option value="">-Any Category-</option>'; 
+						foreach ($categories as $categoryId => $category) {
+							echo '<option value="'.$categoryId.'">'.$category.'</option>';
+						}
+						?>
+						</select>
+					</div>
+					<button type="submit" class="btn btn-default">Search Torrents</button>
 				</form>
 				<br/>
 				<br/>
