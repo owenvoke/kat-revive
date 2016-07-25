@@ -45,26 +45,29 @@
 			$wheres .= ' AND category_id="'.(int)$_GET['c'].'"';
 		}
 
-		$res = \funcs\Functions::query(
-		$db_conn,
-		sprintf(
-			"SELECT * FROM t_collection WHERE torrent_name LIKE '%s'".$wheres." LIMIT " . mysqli_real_escape_string($db_conn, $startPoint) . ", 20",
-			'%'. mysqli_real_escape_string($db_conn, $_GET['q']) .'%'
-		)
-		);
-
-		try {
+		if (isset($_GET['q']) && $_GET['q'] !== '') {
+			$query = $_GET['q'];
+			$res = \funcs\Functions::query(
+			$db_conn,
+			sprintf(
+				"SELECT * FROM t_collection WHERE torrent_name LIKE '%s'".$wheres." LIMIT " . mysqli_real_escape_string($db_conn, $startPoint) . ", 20",
+				'%'. mysqli_real_escape_string($db_conn, $_GET['q']) .'%'
+			)
+			);
 			$ttc = \funcs\Functions::query(
 				$db_conn,
 				sprintf(
 					"SELECT * FROM t_collection WHERE torrent_name LIKE '%s'".$wheres,
-					'%'. mysqli_real_escape_string($db_conn, $_GET['q']) .'%'
+					'%'. mysqli_real_escape_string($db_conn, $query) .'%'
 				)
 			);
 		}
-		catch (Exception $e) {
-			$ttc = false;
+		else {
+			$query = '';
+			$res = \funcs\Functions::query($db_conn, "SELECT * FROM t_collection".$wheres." LIMIT " . mysqli_real_escape_string($db_conn, $startPoint) . ", 20");
+			$ttc = \funcs\Functions::query($db_conn, "SELECT * FROM t_collection".$wheres." LIMIT " . mysqli_real_escape_string($db_conn, $startPoint) . ", 20");
 		}
+		
 		$tt = mysqli_num_rows($ttc);
 		?>
 		<div class="container">
@@ -98,7 +101,7 @@
 					if ($tt > 0) { ?>
 			<div class="table-responsive">
 				<table class="table table-condensed">
-					<th></th><th>Hash</th><th>Name</th><th>Category</th><th colspan="2">URLs</th>
+					<th></th><th>Hash</th><th>Name</th><th>Category</th><th colspan="4">URLs</th>
 					<?php
 						while ($row = mysqli_fetch_assoc($res)) {
 							$data[$row['torrent_info_hash']]['torrent_info_hash'] = $row['torrent_info_hash'];
@@ -113,7 +116,7 @@
 							if ($arrM['torrent_info_hash'] !== '') {
 								echo '<tr><td>';
 								if ($arrM['verified']) { echo '<span class="glyphicon glyphicon-star-empty"></span>'; } else { echo ''; }
-								echo '</td><td>' . $arrM['torrent_info_hash'] . '</td><td><a href="/hash/?h=' . $arrM['torrent_info_hash'] . '" target="_blank">' . $arrM['torrent_name'] . '</a></td><td>' . $arrM['torrent_category'] . '</td><td><a href="magnet:?xt=urn:btih:' . $arrM['torrent_info_hash'] . '&dn=' . urlencode($arrM['torrent_name']) . '&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce" target="_blank" title="Download magnet"><span class="glyphicon glyphicon-cloud-download"></span></a></td><td><a href="' . $arrM['torrent_download_url'] . '" target="_blank" title="Download .torrent from TorCache"><span class="glyphicon glyphicon-floppy-save"></span></a></td></tr>';
+								echo '</td><td>' . $arrM['torrent_info_hash'] . '</td><td><a href="/hash/?h=' . $arrM['torrent_info_hash'] . '" target="_blank">' . $arrM['torrent_name'] . '</a></td><td>' . $arrM['torrent_category'] . '</td><td><a href="magnet:?xt=urn:btih:' . $arrM['torrent_info_hash'] . '&dn=' . urlencode($arrM['torrent_name']) . '&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce" target="_blank" title="Download magnet"><span class="glyphicon glyphicon-cloud-download"></span></a></td><td><a href="' . $arrM['torrent_download_url'] . '" target="_blank" title="Download .torrent from TorCache"><span class="glyphicon glyphicon-floppy-save"></span></a></td><td><a href="http://torrage.info/torrent.php?h=' . $arrM['torrent_info_hash'] . '" target="_blank" title="Download .torrent from Torrage"><img src="https://pximg.xyz/images/eb36d60350eb5c2ba9a8f8f3572237f6.png"></img></a></td><td><a href="http://itorrents.org/torrent/' . $arrM['torrent_info_hash'] . '.torrent" target="_blank" title="Download .torrent from iTorrents"><img src="https://pximg.xyz/images/ecc3e659112104c1bae3e39f2c98bc01.png"></img></a></td></tr>';
 							}
 						}
 						?>
