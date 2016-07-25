@@ -32,6 +32,9 @@ Please don't run this more than once, and please note that it **will** be slow w
 #### api/index.php
 The API, will create a JSON formatted array of torrents. Is limited to 20 at a time, and can be browsed using the `GET` parameter `s`.
 
+#### gen_sql_import.php
+Used to generate MySQL imports of any dump.
+
 #### favicon.png
 Just ignore this, it's the favicon to load when using the site in a browser.
 
@@ -68,3 +71,4 @@ The database is called `kat_db` by default and contains a single table `t_collec
 The API: https://github.com/PXgamer/KatRevive/tree/master/api  
 Main Search: https://github.com/PXgamer/KatRevive/tree/master/search  
 Hash Searching: https://github.com/PXgamer/KatRevive/tree/master/hash  
+MySQL Import Generation: https://github.com/PXgamer/KatRevive/tree/master/sql_imports  
