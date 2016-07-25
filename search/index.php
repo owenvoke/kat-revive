@@ -62,8 +62,11 @@
 				)
 			);
 		}
+		if (isset($_GET['c'])) {
+			$res = \funcs\Functions::query($db_conn, "SELECT * FROM t_collection WHERE category_id='".(int)$_GET['c']."' LIMIT " . mysqli_real_escape_string($db_conn, $startPoint) . ", 20");
+			$ttc = \funcs\Functions::query($db_conn, "SELECT * FROM t_collection WHERE category_id='".(int)$_GET['c']."' LIMIT " . mysqli_real_escape_string($db_conn, $startPoint) . ", 20");
+		}
 		else {
-			$query = '';
 			$res = \funcs\Functions::query($db_conn, "SELECT * FROM t_collection".$wheres." LIMIT " . mysqli_real_escape_string($db_conn, $startPoint) . ", 20");
 			$ttc = \funcs\Functions::query($db_conn, "SELECT * FROM t_collection".$wheres." LIMIT " . mysqli_real_escape_string($db_conn, $startPoint) . ", 20");
 		}
