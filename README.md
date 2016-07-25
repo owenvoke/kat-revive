@@ -72,3 +72,7 @@ The API: https://github.com/PXgamer/KatRevive/tree/master/api
 Main Search: https://github.com/PXgamer/KatRevive/tree/master/search  
 Hash Searching: https://github.com/PXgamer/KatRevive/tree/master/hash  
 MySQL Import Generation: https://github.com/PXgamer/KatRevive/tree/master/sql_imports  
+
+## Gallery
+#### Main Page
+![Index Image](https://pximg.xyz/images/ee2b0357f515d530c7c46acc71d6d287.png)
