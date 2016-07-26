@@ -16,10 +16,10 @@
 	</head>
 	<body>
 		<article>
-			<h1>We’ll be back soon!</h1>
+			<h1>We'll be back soon!</h1>
 			<div>
 				<p>Sorry for any inconvenience, but KatRevive is currently undergoing maintenance. Please check back soon!</p>
-				<p>— <a href="https://pxgamer.github.io/KatRevive/">The KatRevive Team</a></p>
+				<p>- <a href="https://pxgamer.github.io/KatRevive/">The KatRevive Team</a></p>
 			</div>
 		</article>
 	</body>
