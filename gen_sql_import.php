@@ -22,10 +22,20 @@
 				$i = 0;
 				while (!feof($f)) {
 					// Make an array using | as delimiter
-					$arrM = explode('|', mysqli_real_escape_string($db_conn, fgets($f)));
+					$arrM = explode('|', fgets($f));
 					if ($arrM[0] !== '') {
 						// Write links (get the data in the array)
-						$sql_output .= "\n('$arrM[0]','$arrM[1]','$arrM[2]','$arrM[3]','$arrM[4]','$arrM[5]','$arrM[6]','$arrM[7]','$arrM[10]','$arrM[11]'),";
+						$sql_output .= "\n('".
+						mysqli_real_escape_string($db_conn, $arrM[0])."','".
+						mysqli_real_escape_string($db_conn, $arrM[1])."','".
+						mysqli_real_escape_string($db_conn, $arrM[2])."','".
+						mysqli_real_escape_string($db_conn, $arrM[3])."','".
+						mysqli_real_escape_string($db_conn, $arrM[4])."','".
+						mysqli_real_escape_string($db_conn, $arrM[5])."','".
+						mysqli_real_escape_string($db_conn, $arrM[6])."','".
+						mysqli_real_escape_string($db_conn, $arrM[7])."','".
+						mysqli_real_escape_string($db_conn, $arrM[10])."','".
+						mysqli_real_escape_string($db_conn, $arrM[11])."'),";
 						
 						$i++;
 					}
