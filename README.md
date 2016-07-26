@@ -3,6 +3,11 @@
 ## About
 KatRevive is a project to allow revival of the Kickass Torrents API dumps.
 
+There was originally a site at [katrevive.xyz](https://katrevive.xyz/), and there still is. But due to DMCA complaints, I have taken it down. I am not trying to start a torrent site, only allowing people to get torrents that they wanted.
+
+Dumps for your testing available here:
+https://mega.nz/#F!FJoBEYJL!RmsUT3NEtF7Xb0x0zFoBog
+
 ## Files
 #### create_db.sql
 This is the MySQL code needed to generate the database. By default, the username is *root* and the password is blank.  
