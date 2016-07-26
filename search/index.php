@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="initial-scale=1.0,width=device-width">
 		<meta name="HandheldFriendly" content="true"/>
-		<title>KATRevive</title>
+		<title>KatRevive</title>
 		<link rel="shortcut icon" href="favicon.png">
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
 		<script async src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
@@ -18,9 +18,11 @@
 		$sql = "SELECT count(*) as count FROM t_collection";
 		try {
 			$total_torrents = \funcs\Functions::query($db_conn, $sql);
+			$tTotal = mysqli_fetch_assoc($total_torrents)['count'];
 		}
 		catch (Exception $e) {
 			$total_torrents = false;
+			$tTotal = 0;
 		}
 		include('../nav.php');
 		if (!$total_torrents && mysqli_fetch_assoc($total_torrents)['count'] < 1) {
@@ -63,14 +65,16 @@
 		}
 		else if (isset($_GET['c'])) {
 			$res = \funcs\Functions::query($db_conn, "SELECT * FROM t_collection WHERE category_id='".(int)$_GET['c']."' LIMIT " . mysqli_real_escape_string($db_conn, $startPoint) . ", 20");
-			$ttc = \funcs\Functions::query($db_conn, "SELECT * FROM t_collection WHERE category_id='".(int)$_GET['c']."' LIMIT " . mysqli_real_escape_string($db_conn, $startPoint) . ", 20");
+			$ttc = \funcs\Functions::query($db_conn, "SELECT * FROM t_collection WHERE category_id='".(int)$_GET['c']."'");
 		}
 		else {
 			$res = \funcs\Functions::query($db_conn, "SELECT * FROM t_collection".$wheres." LIMIT " . mysqli_real_escape_string($db_conn, $startPoint) . ", 20");
-			$ttc = \funcs\Functions::query($db_conn, "SELECT * FROM t_collection".$wheres." LIMIT " . mysqli_real_escape_string($db_conn, $startPoint) . ", 20");
+			$ttc = \funcs\Functions::query($db_conn, "SELECT count(*) as count FROM t_collection");
+			$tt = mysqli_fetch_assoc($ttc)['count'];
 		}
-
-		$tt = mysqli_num_rows($ttc);
+		if (!isset($tt)) {
+			$tt = mysqli_num_rows($ttc);
+		}
 		?>
 		<div class="container">
 			<div class="text-center">
@@ -83,7 +87,9 @@
 						<?php
 						echo '<option value="">-Any Category-</option>'; 
 						foreach ($categories as $categoryId => $category) {
-							echo '<option value="'.$categoryId.'">'.$category.'</option>';
+							echo '<option value="'.$categoryId.'"';
+							if (isset($_GET['c']) && (int)$_GET['c'] == $categoryId) { echo ' selected="selected"';	}
+							echo '>'.$category.'</option>';
 						}
 						?>
 						</select>
