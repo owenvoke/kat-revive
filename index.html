@@ -99,15 +99,15 @@ Please don't run this more than once, and please note that it <strong>will</stro
 
 <p>Clone to your local or remote server using <code>git clone https://github.com/PXgamer/KatRevive.git</code>.  </p>
 
-<p>I have set this up to use MySQL with a username of <code>root</code> and no password. This can be changed in the <code>funcs.php</code> file.   </p>
+<p>I have set this up to use MySQL with a username of <code>root</code> and no password. This can be changed in the <code>funcs.php</code> file, or during the install process.   </p>
 
-<p>Next, copy the code out of the <code>create_db.sql</code> file and run this in your MySQL administration tool. For example, in PHPMyAdmin, navigate to the SQL tab, and paste it there. Then run this. </p>
+<p>Next, copy the code out of the <code>create_db.sql</code> file and run this in your MySQL administration tool. For example, in PHPMyAdmin, navigate to the SQL tab for the database, and paste it there. Then run this. </p>
 
 <p>Copy your <code>hourlydump.txt</code> and/or <code>dailydump.txt</code> file(s) to the <code>import_lists</code> folder.  </p>
 
-<p>Open the <code>install.php</code> file in a browser, and select the file you'd like to install. Then click <code>import</code>.  </p>
+<p>Open the <code>install.php</code> file in a browser, and check that no errors appear, if not, select the file you'd like to install. Then click <code>import</code>.  </p>
 
-<p>This can take a while depending on the number of torrents your file contains, I tested with 3 Million+ torrents in the data dump I had, which took roughly 10 minutes.  </p>
+<p>This can take a while depending on the number of torrents your file contains, I tested with 3 Million+ torrents in the data dump I had, which took roughly 5 minutes, alternatively you can generate a MySQL import file using the <code>gen_sql_import.php</code> file.  </p>
 
 <h2>
 <a id="the-databasetable" class="anchor" href="#the-databasetable" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Database/Table</h2>
