@@ -22,15 +22,27 @@
 		}
 	}
 	else {
+		$db_conn = \funcs\Functions::conn();
+		
 		if (isset($_GET['s']) && !empty($_GET['s'])) {
 			$startPoint = $_GET['s'];
 		}
 		else {
 			$startPoint = "0";
 		}
+		
+		if (isset($_GET['q']) && !empty($_GET['q'])) {
+			$query = "WHERE torrent_name LIKE '%" . mysqli_real_escape_string($db_conn, $_GET['q']) . "%' ";
+		}
+		else {
+			$query = '';
+		}
 
-		$db_conn = \funcs\Functions::conn();
-		$sql     = "SELECT * FROM t_collection LIMIT " . mysqli_real_escape_string($db_conn, $startPoint) . ", 20";
+		$sql     = "SELECT * FROM t_collection " . $query . "LIMIT " . mysqli_real_escape_string($db_conn, $startPoint) . ", 20";
+		if (isset($_GET['debug']) && !empty($_GET['debug']) && $_GET['debug'] == 'awfj23th1hgewjgojgqpow3f0j3tq') {
+			echo $sql;
+			exit();
+		}
 		$res     = \funcs\Functions::query($db_conn, $sql);
 
 		while ($row = mysqli_fetch_assoc($res)) {
@@ -45,4 +57,9 @@
 		}
 	}
 
+	if ($data == null) {
+		$data = array(
+			'status' => 'null'
+		);
+	}
 	echo json_encode($data);
