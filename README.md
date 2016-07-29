@@ -5,8 +5,15 @@ KatRevive is a project to allow revival of the Kickass Torrents API dumps.
 
 There was originally a site at [katrevive.xyz](https://katrevive.xyz/), and there still is. But due to DMCA complaints, I have taken it down. I am not trying to start a torrent site, only allowing people to get torrents that they wanted.
 
-Dumps for your testing available here:
-https://mega.nz/#F!FJoBEYJL!RmsUT3NEtF7Xb0x0zFoBog
+Dumps for your testing available here:  
+*Hourly Dump:*  
+http://www.filedropper.com/hourlydumptxt  
+http://www.speedyshare.com/uqXpq/hourlydump.txt.gz  
+http://www.multiupfile.com/f/eec39cb8  
+*Daily Dump:*  
+http://www.speedyshare.com/JRjCR/dailydump.txt.gz  
+http://www.filehosting.org/file/details/589629/dailydump.txt.gz  
+http://www.multiupfile.com/f/dfb816fe29  
 
 ## Files
 #### create_db.sql
