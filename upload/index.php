@@ -12,10 +12,15 @@
 
 					if (isset($torrent_content) && $torrent_content !== null) {
 						$torrent_data = parse_torrent($torrent_content);
-						for ($i = 0; $i < count($torrent_data["info"]["files"]) - 1; $i++) {
-							$total_size = $total_size + (int)$torrent_data["info"]["files"][$i]["length"];
+						$file_count = 1;
+						$total_size = 1;
+						if (isset($torrent_data["info"]["files"]) && $torrent_data["info"]["files"] !== null) { // Check if files param exists
+							for ($i = 0; $i < count($torrent_data["info"]["files"]) - 1; $i++) {
+								$total_size = $total_size + (int)$torrent_data["info"]["files"][$i]["length"];
+							}
+							$file_count = count($torrent_data["info"]["files"]);
 						}
-						
+												
 						if (isset($total_size) && isset($torrent_data["info_hash"]) && isset($torrent_data["creation date"]) && isset($torrent_data["info"]["name"])) {
 							$torrent = array(
 								"torrent_name" => $torrent_data["info"]["name"],
@@ -23,7 +28,7 @@
 								"torrent_download_url" => "http://torcache.net/torrent/".strtoupper($torrent_data["info_hash"]).".torrent",
 								"size" => $total_size,
 								"upload_date" => $torrent_data["creation date"],
-								"files_count" => count($torrent_data["info"]["files"]),
+								"files_count" => $file_count,
 							);
 							require("../funcs.php");
 							$db_conn = \funcs\Functions::conn();
@@ -42,6 +47,9 @@
 								<div class="alert alert-success">
 									<p><?php echo $torrent["torrent_name"]; ?> was imported successfully.</p>
 									<p><a href="/hash/?h=<?php echo $torrent["torrent_info_hash"]; ?>">Click to view torrent.</a></p>
+									<?php if ($file_count == 0 || $total_size == 0 || $torrent_data["info"]["name"]) { ?>
+									<p><a href="/edit/?h=<?php echo $torrent["torrent_info_hash"]; ?>">Torrent was missing some details, please edit them here.</a></p>
+									<?php } ?>
 									<p><a href="/">Go to Index</a></p>
 								</div>
 							<?php } else { ?>
@@ -55,6 +63,7 @@
 								<div class="alert alert-danger">
 									<p>Incorrect BSON Format</p>
 									<p>Apologies but we are unable to import this format yet. Please contact PXgamer via one of the following methods:<br/><ul><li>PM PXgamer on <a class="alert-link" href="https://katcr.co/community/index.php?action=pm;sa=send;u=31">KickassTorrents</a>.</li><li>Add a comment to the <a class="alert-link" href="https://github.com/PXgamer/KatRevive/issues/15">open issue on Github</a>.</li></ul><br/><br/>When contacting, please provide the following details.<br/><ul><li>Torrent client that created the .torrent</li><li>Link to the .torrent file that you were trying to upload</li></ul></p>
+									<p><pre><?php var_dump($torrent_data); ?></pre></p>
 								</div>
 							<?php	
 							}
