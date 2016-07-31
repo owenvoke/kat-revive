@@ -9,6 +9,7 @@
 				
 				include ('..categories.php');
 				include ('../funcs.php');
+				include('../categories.php');
 
 				if (isset($_GET['h']) && !empty($_GET['h']) && strlen($_GET['h']) == 40) {
 					$db_conn = \funcs\Functions::conn();
@@ -21,7 +22,7 @@
 							$updates .= "torrent_name='".mysqli_real_escape_string($db_conn, $_POST['torrent_name'])."', ";
 						}
 						if (isset($_POST['torrent_category']) && $_POST['torrent_category'] !== '') {
-							$updates .= "torrent_category=".(int)mysqli_real_escape_string($db_conn, $_POST['torrent_category']).", ";
+							$updates .= "category_id=".(int)mysqli_real_escape_string($db_conn, $_POST['torrent_category']).", ";
 						}
 						if (isset($_POST['torrent_download_url']) && $_POST['torrent_download_url'] !== '') {
 							$updates .= "torrent_download_url='".mysqli_real_escape_string($db_conn, $_POST['torrent_download_url'])."', ";
@@ -39,7 +40,7 @@
 							$updates = substr($updates, 0, -2) . ' ';
 						}
 						$sql     = "UPDATE t_collection SET ".$updates."WHERE torrent_info_hash='".mysqli_real_escape_string($db_conn, $_POST['thash'])."'";
-						echo $sql;
+						//echo $sql;
 						$res     = \funcs\Functions::query($db_conn, $sql);
 					}
 
@@ -61,7 +62,7 @@
 							}
 							$data['torrent_info_hash'] = $row['torrent_info_hash'];
 							$data['torrent_name'] = $row['torrent_name'];
-							$data['torrent_category'] = $row['torrent_category'];
+							$data['category_id'] = $row['category_id'];
 							$data['verified'] = $row['verified'];
 							$data['torrent_info_url'] = $row['torrent_info_url'];
 							$data['torrent_download_url'] = $row['torrent_download_url'];
@@ -69,7 +70,7 @@
 							$data['category_id'] = $row['category_id'];
 							$data['size'] = $row['size'];
 						} ?>
-						<h3><strong>Editing:</strong> <a href="/hash/?h=<?php echo $data['torrent_info_hash']; ?>"><?php echo $data['torrent_name']; ?></a></h3>
+						<h3><strong>Editing:</strong> <a href="/hidden/hash/?h=<?php echo $data['torrent_info_hash']; ?>"><?php echo $data['torrent_name']; ?></a></h3>
 						<form action="" method="POST" enctype="multipart/form-data">
 							<?php if ($data['torrent_name'] === '' || $data['torrent_name'] == $data['torrent_info_hash']) { ?>
 							<div class="form-group">
@@ -77,10 +78,19 @@
 								<input type="text" class="form-control" name="torrent_name" placeholder="Torrent Name">
 							</div>
 							<?php } ?>
-							<?php if ($data['torrent_category'] == 55 || $data['torrent_category'] == null) { ?>
+							<?php if ($data['category_id'] == 55 || $data['category_id'] == null) { ?>
 							<div class="form-group">
 								<label for="torrent_category">Category ID</label>
-								<input type="number" class="form-control" name="torrent_category" placeholder="Category">
+								<select name="torrent_category" class="form-control">
+									<?php
+									echo '<option value="55">-DEFAULT CATEGORY-</option>'; 
+									foreach ($categories as $categoryId => $category) {
+										echo '<option value="'.$categoryId.'"';
+										if (isset($_GET['c']) && (int)$_GET['c'] == $categoryId) { echo ' selected="selected"';	}
+										echo '>'.$category.'</option>';
+									}
+									?>
+								</select>
 							</div>
 							<?php } ?>
 							<?php if ($data['torrent_download_url'] == '') { ?>
@@ -109,11 +119,12 @@
 							<?php } ?>
 							<?php if (
 									$data['torrent_name'] !== '' &&
-									$data['size'] !== 0 &&
-									$data['verified'] !== 0 &&
+									$data['size'] > 1 &&
 									$data['torrent_info_url'] !== '' &&
+									$data['torrent_info_url'] !== null &&
 									$data['torrent_download_url'] !== '' &&
-									$data['torrent_category'] !== 55
+									$data['torrent_download_url'] !== null &&
+									$data['category_id'] !== 55
 								) { ?>
 									<div class="alert alert-info">
 										<p>All fields have been filled in already.</p>
