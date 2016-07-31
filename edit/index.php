@@ -13,7 +13,7 @@
 				if (isset($_GET['h']) && !empty($_GET['h']) && strlen($_GET['h']) == 40) {
 					$db_conn = \funcs\Functions::conn();
 					
-					var_dump($_POST);
+					//var_dump($_POST);
 					
 					if (isset($_POST['update']) && isset($_POST['thash'])) {
 						$updates = '';
