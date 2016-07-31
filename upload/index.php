@@ -51,8 +51,14 @@
 								</div>
 							<?php	
 							} 
+	        } else { ?>
+								<div class="alert alert-danger">
+									<p>Incorrect BSON Format</p>
+									<p>Apologies but we are unable to import this format yet. Please contact PXgamer via one of the following methods:<br/><ul><li>PM PXgamer on <a class="alert-link" href="https://katcr.co/community/index.php?action=pm;sa=send;u=31">KickassTorrents</a>.</li><li>Add a comment to the <a class="alert-link" href="https://github.com/PXgamer/KatRevive/issues/15">open issue on Github</a>.</li></ul><br/><br/>When contacting, please provide the following details.<br/><ul><li>Torrent client that created the .torrent</li><li>Link to the .torrent file that you were trying to upload</li></ul></p>
+								</div>
+							<?php	
+							}
 						}
-					}
 				}
 				else {
 			?>
