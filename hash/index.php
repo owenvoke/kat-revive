@@ -7,7 +7,7 @@
 			<?php
 			
 				
-				include ('..categories.php');
+				include ('../categories.php');
 				include ('../funcs.php');
 
 				if (isset($_GET['h']) && !empty($_GET['h']) && strlen($_GET['h']) == 40) {
@@ -46,14 +46,14 @@
 						if ($data['verified']) { echo '<span class="glyphicon glyphicon-star-empty"></span>'; }
 						echo '</td></tr>';
 						echo '<tr><td><p><strong>Hash: </strong></td><td>'.$data['torrent_info_hash'].'</td></tr>';
-						echo '<tr><td><p><strong>Category: </strong></td><td>'.$data['torrent_category'].' (';
+						echo '<tr><td><p><strong>Category: </strong></td><td>';
 						if ($categories[$data['category_id']] != '') {
 							echo $categories[$data['category_id']];
 						}
 						else {
 							echo $data['category_id'];
 						}
-						echo ')</td></tr>';
+						echo '</td></tr>';
 						echo '<tr><td><p><strong>KAT URL: </strong></td><td><a href="'.$data['torrent_info_url'].'" target="_blank">'.$data['torrent_info_url'].'</a></td></tr>';
 						echo '<tr><td><p><strong>TorCache URL: </strong></td><td><a href="'.$data['torrent_download_url'].'" target="_blank">'.$data['torrent_download_url'].'</a></td></tr>';
 						echo '<tr><td><p><strong>Torrage URL: </strong></td><td><a href="http://torrage.info/torrent.php?h='.$data['torrent_info_hash'].'" target="_blank">http://torrage.info/torrent.php?h='.$data['torrent_info_hash'].'</a></td></tr>';

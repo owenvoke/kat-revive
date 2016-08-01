@@ -5,17 +5,16 @@
 		<?php include('../nav.php'); ?>
 		<div class="container" style="margin-top: 5%;">
 			<?php
-			
-				
-				include ('..categories.php');
+
+
+				include ('../categories.php');
 				include ('../funcs.php');
-				include('../categories.php');
 
 				if (isset($_GET['h']) && !empty($_GET['h']) && strlen($_GET['h']) == 40) {
 					$db_conn = \funcs\Functions::conn();
-					
+
 					//var_dump($_POST);
-					
+
 					if (isset($_POST['update']) && isset($_POST['thash'])) {
 						$updates = '';
 						if (isset($_POST['torrent_name']) && $_POST['torrent_name'] !== '') {
@@ -70,7 +69,7 @@
 							$data['category_id'] = $row['category_id'];
 							$data['size'] = $row['size'];
 						} ?>
-						<h3><strong>Editing:</strong> <a href="/hidden/hash/?h=<?php echo $data['torrent_info_hash']; ?>"><?php echo $data['torrent_name']; ?></a></h3>
+						<h3><strong>Editing:</strong> <a href="/hash/?h=<?php echo $data['torrent_info_hash']; ?>"><?php echo $data['torrent_name']; ?></a></h3>
 						<form action="" method="POST" enctype="multipart/form-data">
 							<?php if ($data['torrent_name'] === '' || $data['torrent_name'] == $data['torrent_info_hash']) { ?>
 							<div class="form-group">
@@ -83,7 +82,7 @@
 								<label for="torrent_category">Category ID</label>
 								<select name="torrent_category" class="form-control">
 									<?php
-									echo '<option value="55">-DEFAULT CATEGORY-</option>'; 
+									echo '<option value="55">-DEFAULT CATEGORY-</option>';
 									foreach ($categories as $categoryId => $category) {
 										echo '<option value="'.$categoryId.'"';
 										if (isset($_GET['c']) && (int)$_GET['c'] == $categoryId) { echo ' selected="selected"';	}
