@@ -1,7 +1,7 @@
 <?php
 $categories = [
 	"57" => "TV",
-	"19" => "Movies > videos",
+	"19" => "Movies > Videos",
 	"20" => "Movies > Movie clips",
 	"22" => "Movies > Handheld",
 	"69" => "Movies > iPad",

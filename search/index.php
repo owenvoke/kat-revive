@@ -76,7 +76,7 @@
 					<div class="form-group">
 						<select name="c" class="form-control">
 						<?php
-						echo '<option value="">-Any Category-</option>'; 
+						echo '<option value="">-Any Category-</option>';
 						foreach ($categories as $categoryId => $category) {
 							echo '<option value="'.$categoryId.'"';
 							if (isset($_GET['c']) && (int)$_GET['c'] == $categoryId) { echo ' selected="selected"';	}
@@ -115,7 +115,7 @@
 						while ($row = mysqli_fetch_assoc($res)) {
 							$data[$row['torrent_info_hash']]['torrent_info_hash'] = $row['torrent_info_hash'];
 							$data[$row['torrent_info_hash']]['torrent_name'] = $row['torrent_name'];
-							$data[$row['torrent_info_hash']]['torrent_category'] = $row['torrent_category'];
+							$data[$row['torrent_info_hash']]['category_id'] = $row['category_id'];
 							$data[$row['torrent_info_hash']]['verified'] = $row['verified'];
 							$data[$row['torrent_info_hash']]['torrent_info_url'] = $row['torrent_info_url'];
 							$data[$row['torrent_info_hash']]['torrent_download_url'] = $row['torrent_download_url'];
@@ -125,7 +125,7 @@
 							if ($arrM['torrent_info_hash'] !== '') {
 								echo '<tr><td>';
 								if ($arrM['verified']) { echo '<span class="glyphicon glyphicon-star-empty"></span>'; } else { echo ''; }
-								echo '</td><td>' . $arrM['torrent_info_hash'] . '</td><td><a href="/hash/?h=' . $arrM['torrent_info_hash'] . '" target="_blank">' . $arrM['torrent_name'] . '</a></td><td>' . $arrM['torrent_category'] . '</td><td><a href="magnet:?xt=urn:btih:' . $arrM['torrent_info_hash'] . '&dn=' . urlencode($arrM['torrent_name']) . '&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce" target="_blank" title="Download magnet"><span class="glyphicon glyphicon-cloud-download"></span></a></td><td><a href="' . $arrM['torrent_download_url'] . '" target="_blank" title="Download .torrent from TorCache"><span class="glyphicon glyphicon-floppy-save"></span></a></td><td><a href="http://torrage.info/torrent.php?h=' . $arrM['torrent_info_hash'] . '" target="_blank" title="Download .torrent from Torrage"><img src="https://pximg.xyz/images/eb36d60350eb5c2ba9a8f8f3572237f6.png"></img></a></td><td><a href="http://itorrents.org/torrent/' . $arrM['torrent_info_hash'] . '.torrent" target="_blank" title="Download .torrent from iTorrents"><img src="https://pximg.xyz/images/ecc3e659112104c1bae3e39f2c98bc01.png"></img></a></td></tr>';
+								echo '</td><td>' . $arrM['torrent_info_hash'] . '</td><td><a href="/hash/?h=' . $arrM['torrent_info_hash'] . '" target="_blank">' . $arrM['torrent_name'] . '</a></td><td>' . $categories[$arrM['category_id']] . '</td><td><a href="magnet:?xt=urn:btih:' . $arrM['torrent_info_hash'] . '&dn=' . urlencode($arrM['torrent_name']) . '&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce" target="_blank" title="Download magnet"><span class="glyphicon glyphicon-cloud-download"></span></a></td><td><a href="' . $arrM['torrent_download_url'] . '" target="_blank" title="Download .torrent from TorCache"><span class="glyphicon glyphicon-floppy-save"></span></a></td><td><a href="http://torrage.info/torrent.php?h=' . $arrM['torrent_info_hash'] . '" target="_blank" title="Download .torrent from Torrage"><img src="https://pximg.xyz/images/eb36d60350eb5c2ba9a8f8f3572237f6.png"></img></a></td><td><a href="http://itorrents.org/torrent/' . $arrM['torrent_info_hash'] . '.torrent" target="_blank" title="Download .torrent from iTorrents"><img src="https://pximg.xyz/images/ecc3e659112104c1bae3e39f2c98bc01.png"></img></a></td></tr>';
 							}
 						}
 						?>
