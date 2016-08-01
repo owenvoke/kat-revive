@@ -8,7 +8,7 @@
     background: #2c240f;
 	color: #ffeeb4;
 }
-.navbar.navbar-default {
+.navbar.navbar-default, .dropdown-menu {
 	background: #594c2d;
 	border:none;
 	border-radius:0;
@@ -50,6 +50,14 @@
 	            <li role="separator" class="divider"></li>
 	            <li><a href="/api/" target="_blank"><span class="glyphicon glyphicon-book"></span> API</a></li>
 	            <li><a href="/cron/exports/"><span class="glyphicon glyphicon-cloud-download"></span> Data Dumps</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#" data-toggle="modal" data-target="#kat_theme"><span class="glyphicon glyphicon-eye-open"></span> <?php if (isset($_COOKIE['kat_theme']) && $_COOKIE['kat_theme'] != '') {
+    ?>Disable KAT Theme<?php
+
+} else {
+    ?>Enable KAT Theme<?php
+
+} ?></a></li>
 							<li role="separator" class="divider"></li>
 	            <li><a href="https://github.com/PXgamer/KatRevive/issues/" target="_blank"><span class="glyphicon glyphicon-alert"></span> Report Issue</a></li>
           	</ul>
