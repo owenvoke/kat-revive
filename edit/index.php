@@ -110,7 +110,7 @@
 								<input type="number" class="form-control" name="verified" placeholder="Verified Status (1 or 0)">
 							</div>
 							<?php } ?>
-							<?php if ($data['size'] == 0) { ?>
+							<?php if ($data['size'] < 2 || $data['size'] == null) { ?>
 							<div class="form-group">
 								<label for="size">Size in Bytes</label>
 								<input type="number" class="form-control" name="size" placeholder="Size (Bytes)">
