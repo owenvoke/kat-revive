@@ -40,7 +40,7 @@
 							$data['category_id'] = $row['category_id'];
 							$data['size'] = $row['size'];
 						}
-						echo '<table class="table">';
+						echo '<div class="table-responsive"><table class="table">';
 						echo '<tr><td><p><strong>Name: </strong></td><td>'.$data['torrent_name'].'</td></tr>';
 						echo '<tr><td><p><strong>Is Verified: </strong></td><td>';
 						if ($data['verified']) { echo '<span class="glyphicon glyphicon-star-empty"></span>'; }
@@ -65,7 +65,7 @@
 						echo '<tr><td><p><strong>Magnet Link: </strong></td><td><a href="magnet:?xt=urn:btih:'.$data['torrent_info_hash'].'&dn='.$data['torrent_name'].'"<span>magnet:?xt=urn:btih:'.$data['torrent_info_hash'].'&dn='.$data['torrent_name'].'</span></a></td></tr>';
 						echo '<tr><td><p><strong>File Count: </strong></td><td>'.$data['files_count'].'</td></tr>';
 						echo '<tr><td><p><strong>Size: </strong></td><td>'.(round($data['size'] / pow(1024, 2), 2)).'MB</td></tr>';
-						echo '</table>';
+						echo '</table></div>';
 					}
 					else {
 						echo '
