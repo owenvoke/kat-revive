@@ -32,15 +32,15 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	  <ul class="nav navbar-nav">
-        <li><a href="/search/">Main Search</a></li>
-				<form class="navbar-form navbar-left" role="search" action="/hash" method="get">
-					<div class="form-group">
-						<input name="h" type="text" class="form-control" placeholder="Search">
-					</div>
-					<button type="submit" class="btn btn-default">Search Hash</button>
-				</form>
-			</ul>
+	    <ul class="nav navbar-nav">
+        <li><a href="/hash/">Hash Search</a></li>
+        <form class="navbar-form navbar-left" role="search" action="/search" method="get">
+          <div class="form-group">
+            <input name="q" type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Search for Torrents</button>
+        </form>
+      </ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
           	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span></a>
