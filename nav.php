@@ -1,4 +1,5 @@
-<?php if (isset($_COOKIE['kat_theme']) && $_COOKIE['kat_theme'] != '') { ?>
+<?php if (isset($_COOKIE['kat_theme']) && $_COOKIE['kat_theme'] != '') {
+    ?>
 <style>
 .nav.navbar-nav li a, .navbar-header .navbar-brand {
 	color: #ffeeb4;
@@ -13,7 +14,9 @@
 	border-radius:0;
 }
 </style>
-<?php } ?>
+<?php
+
+} ?>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -31,18 +34,29 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	  <ul class="nav navbar-nav">
         <li><a href="/search/">Main Search</a></li>
-        <li><a href="/hash/">Hash Search</a></li>
-        <li><a href="/api/">API Search</a></li>
-		<form class="navbar-form navbar-left" role="search" action="/hash" method="get">
-			<div class="form-group">
-				<input name="h" type="text" class="form-control" placeholder="Search">
-			</div>
-			<button type="submit" class="btn btn-default">Search Hash</button>
-		</form>
-		<li><button class="btn btn-default navbar-btn" data-toggle="modal" data-target="#kat_theme"><?php if (isset($_COOKIE['kat_theme']) && $_COOKIE['kat_theme'] != '') { ?>Disable KAT Theme<?php } else { ?>Enable KAT Theme<?php } ?></button></li>
-      </ul>
-    </div>
-  </div>
+				<form class="navbar-form navbar-left" role="search" action="/hash" method="get">
+					<div class="form-group">
+						<input name="h" type="text" class="form-control" placeholder="Search">
+					</div>
+					<button type="submit" class="btn btn-default">Search Hash</button>
+				</form>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span></a>
+          	<ul class="dropdown-menu">
+							<li><a href="/hash/"><span class="glyphicon glyphicon-flash"></span> Hash Search</a></li>
+							<li><a href="/upload/"><span class="glyphicon glyphicon-open"></span> Upload Torrent</a></li>
+	            <li role="separator" class="divider"></li>
+	            <li><a href="/api/" target="_blank"><span class="glyphicon glyphicon-book"></span> API</a></li>
+	            <li><a href="/cron/exports/"><span class="glyphicon glyphicon-cloud-download"></span> Data Dumps</a></li>
+							<li role="separator" class="divider"></li>
+	            <li><a href="https://github.com/PXgamer/KatRevive/issues/" target="_blank"><span class="glyphicon glyphicon-alert"></span> Report Issue</a></li>
+          	</ul>
+        	</li>
+      	</ul>
+    	</div>
+  	</div>
 </nav>
 <div class="modal fade" id="kat_theme" tabindex="-1" role="dialog" aria-labelledby="kat_theme">
   <div class="modal-dialog" role="document">
