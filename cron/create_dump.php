@@ -8,8 +8,10 @@ $db_name		= 'kat_db';
 $db_user 		= "root";
 $db_pass 		= '';
 $backup_file 	= "exports/daily_dump_".date("Y-m-d").".sql";
-$cmd			= "mysqldump --insert-ignore -u $db_user -p$db_pass $db_name $tableName > $backup_file";
-exec($cmd);
+$cmd			= "mysqldump --insert-ignore --skip-add-drop-table --no-create-info -u $db_user -p$db_pass $db_name $tableName > $backup_file";
+if (!file_exists($backup_file)) {
+	exec($cmd);
+}
 
 function scan_dir($dir = "exports") {
 	$ignored = array('.', '..', '.htaccess', 'index.php');
