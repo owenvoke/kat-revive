@@ -74,4 +74,9 @@
 			'status' => 'null'
 		);
 	}
-	echo json_encode($data);
+	if (isset($_GET["pretty"]) && $_GET["pretty"] == "true") {
+	    echo json_encode($data, JSON_PRETTY_PRINT);
+        }
+        else {
+            echo json_encode($data);
+        }
