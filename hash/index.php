@@ -51,8 +51,10 @@
                                     $data['category_id'] == 55
                                 ) {
                             ?>
-								<a href="/hidden/edit/?h=<?php echo $data['torrent_info_hash']; ?>"><button class="pull-right btn btn-default btn-xs" style="margin-bottom: 10px;"><span class="glyphicon glyphicon-pencil"></span> Edit Torrent</button></a>
+								<a href="/hidden/edit/?h=<?php echo $data['torrent_info_hash'];
+                            ?>"><button class="pull-right btn btn-default btn-xs" style="margin-bottom: 10px;"><span class="glyphicon glyphicon-pencil"></span> Edit Torrent</button></a>
 								<?php
+
                         }
                         echo '<table class="table">';
                         echo '<tr><td><p><strong>Name: </strong></td><td>'.$data['torrent_name'].'</td></tr>';
@@ -81,6 +83,22 @@
                         echo '<tr><td><p><strong>File Count: </strong></td><td>'.$data['files_count'].'</td></tr>';
                         echo '<tr><td><p><strong>Size: </strong></td><td>'.(round($data['size'] / pow(1024, 2), 2)).'MB</td></tr>';
                         echo '</table></div>';
+
+                        // Show description
+                        if ($data['description'] !== '') {
+                            ?>
+							<div class="panel panel-default panel-collapse">
+								<div class="panel-heading collapsed" data-toggle="collapse" data-target="#descriptionBox">
+									<strong><a href="javascript:void(0)">Description</a></strong>
+								</div>
+								<div id="descriptionBox" class="panel-body collapse">
+									<div><?php echo $data['description'];
+                            ?></div>
+								</div>
+							</div>
+
+						<?php
+                        }
                     } else {
                         echo '
 						<div class="alert alert-danger">
