@@ -40,6 +40,25 @@
 
             if (strlen($query) < 2) {
                 ?>
+	<form role="search" action="/search" method="get">
+					<div class="form-group">
+						<input name="q" type="text" class="form-control" placeholder="Search" value="<?php if (isset($_GET['q'])) { echo $_GET['q']; } ?>">
+					</div>
+					<div class="form-group">
+						<select name="c" class="form-control">
+						<?php
+						echo '<option value="">-Any Category-</option>'; 
+						foreach ($categories as $categoryId => $category) {
+							echo '<option value="'.$categoryId.'"';
+							if (isset($_GET['c']) && (int)$_GET['c'] == $categoryId) { echo ' selected="selected"';	}
+							echo '>'.$category.'</option>';
+						}
+						?>
+						</select>
+					</div>
+					<button type="submit" class="form-control btn btn-default">Search Torrents</button>
+				</form>
+
 				<div class="container" style="margin-top: 5%;">
 					<div class="alert alert-danger">
 						<h2>Query string too short.</h2>
