@@ -35,7 +35,7 @@
                             $updates .= 'size='.(int) mysqli_real_escape_string($db_conn, $_POST['size']).', ';
                         }
                         if (isset($_POST['description']) && $_POST['description'] !== 0) {
-                            $updates .= 'description='.mysqli_real_escape_string($db_conn, $_POST['description']).', ';
+                            $updates .= 'description="'.mysqli_real_escape_string($db_conn, $_POST['description']).'", ';
                         }
                         if (substr($updates, -2, 2) == ', ') {
                             $updates = substr($updates, 0, -2).' ';
