@@ -40,7 +40,21 @@
                             $data['category_id'] = $row['category_id'];
                             $data['size'] = $row['size'];
                         }
-                        echo '<div class="table-responsive"><table class="table">';
+                        echo '<div class="table-responsive">';
+                        if (
+                                    $data['torrent_name'] == '' ||
+                                    $data['size'] < 2 &&
+                                    $data['torrent_info_url'] == '' ||
+                                    $data['torrent_info_url'] == null ||
+                                    $data['torrent_download_url'] == '' ||
+                                    $data['torrent_download_url'] == null ||
+                                    $data['category_id'] == 55
+                                ) {
+                            ?>
+								<a href="/hidden/edit/?h=<?php echo $data['torrent_info_hash']; ?>"><button class="pull-right btn btn-default btn-xs" style="margin-bottom: 10px;"><span class="glyphicon glyphicon-pencil"></span> Edit Torrent</button></a>
+								<?php
+                        }
+                        echo '<table class="table">';
                         echo '<tr><td><p><strong>Name: </strong></td><td>'.$data['torrent_name'].'</td></tr>';
                         echo '<tr><td><p><strong>Is Verified: </strong></td><td>';
                         if ($data['verified']) {
@@ -79,7 +93,7 @@
                         exit();
                     }
                 } elseif (isset($_GET['h']) && !empty($_GET['h']) && strlen($_GET['h']) !== 40) {
-                                    echo '
+                    echo '
 		<div class="alert alert-danger">
 			<h1>Invalid Hash Provided</h1>
 			<p>
@@ -101,9 +115,9 @@
 			<button type="submit" class="btn btn-default form-control">Search Hash</button>
 		</form>
 		';
-                                    exit();
-                                } else {
-                                    echo '
+                    exit();
+                } else {
+                    echo '
 						<div class="alert alert-danger">
 							<h1>No Hash Provided</h1>
 							<p>
@@ -119,8 +133,8 @@
 							<button type="submit" class="btn btn-default form-control">Search Hash</button>
 						</form>
 						';
-                                    exit();
-                                }
+                    exit();
+                }
 
                 ?>
 		</div>
