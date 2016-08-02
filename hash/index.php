@@ -78,8 +78,32 @@
 						';
                         exit();
                     }
-                } else {
-                    echo '
+                } elseif (isset($_GET['h']) && !empty($_GET['h']) && strlen($_GET['h']) !== 40) {
+                                    echo '
+		<div class="alert alert-danger">
+			<h1>Invalid Hash Provided</h1>
+			<p>
+				Providing a hash can be done using the HTTP GET parameter of `h`.<br/>
+				A hash should:<br/>
+				<ul>
+					<li>Be 40 characters long</li>
+					<li>Only contain alphanumeric characters</li>
+					<li>Be linked to a .torrent file</li>
+				</ul>
+				e.g. <strong>hash/?h=74C80815374F44702FFE1F25B10D1788B79282A4</strong>
+			</p>
+		</div>
+
+		<form action="/hidden/hash" method="get">
+			<div class="form-group">
+				<input name="h" type="text" class="form-control" placeholder="Search">
+			</div>
+			<button type="submit" class="btn btn-default form-control">Search Hash</button>
+		</form>
+		';
+                                    exit();
+                                } else {
+                                    echo '
 						<div class="alert alert-danger">
 							<h1>No Hash Provided</h1>
 							<p>
@@ -95,8 +119,8 @@
 							<button type="submit" class="btn btn-default form-control">Search Hash</button>
 						</form>
 						';
-                    exit();
-                }
+                                    exit();
+                                }
 
                 ?>
 		</div>
