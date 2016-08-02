@@ -10,7 +10,8 @@ CREATE TABLE `kat_db`.`t_collection` (
   `category_id` INT NOT NULL ,
   `files_count` INT NOT NULL ,
   `upload_date` VARCHAR(100) NOT NULL ,
-  `verified` BOOLEAN NOT NULL
+  `verified` BOOLEAN NOT NULL ,
+  `description` VARCHAR(10000) NOT NULL
 )
 ENGINE = InnoDB
 COMMENT = 'Torrent Database';
