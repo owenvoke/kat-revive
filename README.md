@@ -3,7 +3,9 @@
 ## About
 KatRevive is a project to allow revival of the Kickass Torrents API dumps.
 
-There was originally a site at [katrevive.xyz](https://katrevive.xyz/), and there still is. But due to DMCA complaints, I have taken it down. I am not trying to start a torrent site, only allowing people to get torrents that they wanted.
+I apologise for this, but KatRevive will be down permanently from this [location](https://katrevive.xyz/). 
+
+Ok DMCA, you win. Enough with the bullshit. It's gone.  
 
 Dumps for your testing available here:  
 *Hourly Dump:*  
