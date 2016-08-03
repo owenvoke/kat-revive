@@ -7,16 +7,6 @@ I apologise for this, but KatRevive will be down permanently from this [location
 
 Ok DMCA, you win. Enough with the bullshit. It's gone.  
 
-Dumps for your testing available here:  
-*Hourly Dump:*  
-http://www.filedropper.com/hourlydumptxt  
-http://www.speedyshare.com/uqXpq/hourlydump.txt.gz  
-http://www.multiupfile.com/f/eec39cb8  
-*Daily Dump:*  
-http://www.speedyshare.com/JRjCR/dailydump.txt.gz  
-http://www.filehosting.org/file/details/589629/dailydump.txt.gz  
-http://www.multiupfile.com/f/dfb816fe29  
-
 ## Files
 #### create_db.sql
 This is the MySQL code needed to generate the database. By default, the username is *root* and the password is blank.  
