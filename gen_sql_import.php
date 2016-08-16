@@ -20,12 +20,16 @@
 				
 				$f = fopen("import_lists/".$db_type."dump.txt", "r") or exit("Unable to open file!<br/> DT-ERROR: E001" .$db_type);
 				$i = 0;
+				
+				$fname = "sql_imports/sql_import_".date("Y-m-d_H.i.s").".sql";
+				$fe = fopen($fname, "a+");
+				fwrite($fe, $sql_output);
 				while (!feof($f)) {
 					// Make an array using | as delimiter
 					$arrM = explode('|', fgets($f));
 					if ($arrM[0] !== '') {
 						// Write links (get the data in the array)
-						$sql_output .= "\n('".
+						$sql_output = "\n('".
 						mysqli_real_escape_string($db_conn, $arrM[0])."','".
 						mysqli_real_escape_string($db_conn, $arrM[1])."','".
 						mysqli_real_escape_string($db_conn, $arrM[2])."','".
@@ -37,15 +41,16 @@
 						mysqli_real_escape_string($db_conn, $arrM[10])."','".
 						mysqli_real_escape_string($db_conn, $arrM[11])."'),";
 						
+						fwrite($fe, $sql_output);
+						
 						$i++;
 					}
 				}
 				
+				file_put_contents($fname, rtrim(file_get_contents($fname)));
 				fclose($f);
-				$sql_output = substr($sql_output, 0, -1);
-				$fname = "sql_imports/sql_import_".date("Y-m-d_H.i.s").".sql";
-				$f = fopen($fname, "w");
-				fwrite($f, $sql_output);
+				fclose($fe);
+				
 				?>
 				<div class="alert alert-success">
 					<p>Added <?php echo $i; ?> to <a href="<?php echo $fname; ?>"><?php echo $fname; ?></a> in <?php echo number_format(microtime(true) - $startTime, 4); ?> seconds.</p>
