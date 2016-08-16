@@ -39,6 +39,7 @@
                             $data['files_count'] = $row['files_count'];
                             $data['category_id'] = $row['category_id'];
                             $data['size'] = $row['size'];
+                            $data['upload_date'] = $row['upload_date'];
                         }
                         echo '<div class="table-responsive">';
                         if (
@@ -64,6 +65,7 @@
                         }
                         echo '</td></tr>';
                         echo '<tr><td><p><strong>Hash: </strong></td><td>'.$data['torrent_info_hash'].'</td></tr>';
+                        echo '<tr><td><p><strong>Upload Date: </strong></td><td>'.date("jS M Y H:m:s", $data['upload_date']).'</td>';
                         echo '<tr><td><p><strong>Category: </strong></td><td>';
                         if ($categories[$data['category_id']] != '') {
                             echo $categories[$data['category_id']];

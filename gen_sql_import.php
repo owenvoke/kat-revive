@@ -38,8 +38,15 @@
 						mysqli_real_escape_string($db_conn, $arrM[5])."','".
 						mysqli_real_escape_string($db_conn, $arrM[6])."','".
 						mysqli_real_escape_string($db_conn, $arrM[7])."','".
-						mysqli_real_escape_string($db_conn, $arrM[10])."','".
-						mysqli_real_escape_string($db_conn, $arrM[11])."'),";
+						mysqli_real_escape_string($db_conn, $arrM[10])."','";
+						if (isset($arrM[11]) && $arrM[11] !== '') {
+							$sql_output .= mysqli_real_escape_string($db_conn, $arrM[11]);
+						}
+						else {
+							$sql_output .= date("Y-M-d H:m:s");
+						}
+						
+						$sql_output .= "'),";
 						
 						fwrite($fe, $sql_output);
 						
