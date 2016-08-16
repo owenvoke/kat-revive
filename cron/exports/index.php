@@ -25,7 +25,7 @@
 			$dir_files = scan_dir(".");
 			
 			for ($i = 0; $i < count($dir_files); $i++) { ?>
-				<tr><td><a href="/cron/exports/<?php echo $dir_files[$i]; ?>"><?php echo $dir_files[$i]; ?></a></td><td><?php echo preg_replace("/daily_dump_([0-9]{4}-[0-9]{2}-[0-9]{2})\.sql/", "$1", $dir_files[$i]); ?></td></tr>
+				<tr><td><a href="/cron/exports/<?php echo $dir_files[$i]; ?>"><?php echo $dir_files[$i]; ?></a></td><td><?php echo preg_replace("/daily_dump_([0-9]{4}-[0-9]{2}-[0-9]{2})\.sql.gz/", "$1", $dir_files[$i]); ?></td></tr>
 			<?php
 			}
 			?>
