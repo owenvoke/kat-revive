@@ -71,6 +71,22 @@ The database is called `kat_db` by default and contains a single table `t_collec
 - upload_date
 - verified
 
+## Hourly Dump Format
+   | TYPE			| FORMATE
+---|----------|--------------
+0  | HASH			| [VARCHAR]
+1  | TITLE			| [VARCHAR]
+2  | CATEGORY 		| [VARCHAR]
+3  | KAT URL		| [VARCHAR]
+4  | TORCACHE URL	| [VARCHAR]
+5  | SIZE (Bytes)	| [BIGINT]
+6  | Category ID	| [INT]
+7  | Num of Files	| [INT]
+8  | UNKNOWN		| [INT]
+9  | UNKNOWN		| [INT]
+10 | DATE IN SECS	| [BIGINT]
+11 | VERIFIED		| [INT]
+
 ## Other Features
 The API: https://github.com/PXgamer/KatRevive/tree/master/api  
 Main Search: https://github.com/PXgamer/KatRevive/tree/master/search  
