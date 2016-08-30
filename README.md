@@ -1,5 +1,7 @@
 # KatRevive
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/PXgamer/KatRevive/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/PXgamer/KatRevive/?branch=master) [![Build Status](https://scrutinizer-ci.com/g/PXgamer/KatRevive/badges/build.png?b=master)](https://scrutinizer-ci.com/g/PXgamer/KatRevive/build-status/master)
+
 ## About
 KatRevive is a project to allow revival of the Kickass Torrents API dumps.
 
