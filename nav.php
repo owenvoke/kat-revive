@@ -1,5 +1,5 @@
 <?php if (isset($_COOKIE['kat_theme']) && $_COOKIE['kat_theme'] != '') {
-    ?>
+	?>
     <style>
     .nav.navbar-nav li a, .navbar-header .navbar-brand, .dropdown-menu>li>a {
     	color: #ffeeb4 !important;
@@ -52,10 +52,10 @@
 	            <li><a href="/cron/exports/"><span class="glyphicon glyphicon-cloud-download"></span> Data Dumps</a></li>
 							<li role="separator" class="divider"></li>
 							<li><a href="#" data-toggle="modal" data-target="#kat_theme"><span class="glyphicon glyphicon-eye-open"></span> <?php if (isset($_COOKIE['kat_theme']) && $_COOKIE['kat_theme'] != '') {
-    ?>Disable KAT Theme<?php
+	?>Disable KAT Theme<?php
 
 } else {
-    ?>Enable KAT Theme<?php
+	?>Enable KAT Theme<?php
 
 } ?></a></li>
 							<li role="separator" class="divider"></li>

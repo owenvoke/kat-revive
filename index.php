@@ -9,8 +9,7 @@
 		$sql = "SELECT count(*) as count FROM t_collection";
 		try {
 			$total_torrents = \funcs\Functions::query($db_conn, $sql);
-		}
-		catch (Exception $e) {
+		} catch (Exception $e) {
 			$total_torrents = false;
 		}
 
@@ -28,8 +27,7 @@
 		}
 		if (isset($_GET['s']) && !empty($_GET['s'])) {
 			$startPoint = $_GET['s'];
-		}
-		else {
+		} else {
 			$startPoint = "0";
 		}
 		$tt = mysqli_fetch_assoc($total_torrents)['count'];
@@ -60,7 +58,7 @@
 					require_once('funcs.php');
 
 					$db_conn = \funcs\Functions::conn();
-					$sql     = "SELECT * FROM t_collection LIMIT " . mysqli_real_escape_string($db_conn, $startPoint) . ", 20";
+					$sql     = "SELECT * FROM t_collection LIMIT ".mysqli_real_escape_string($db_conn, $startPoint).", 20";
 					$res     = \funcs\Functions::query($db_conn, $sql);
 
 					while ($row = mysqli_fetch_assoc($res)) {
@@ -75,7 +73,7 @@
 						//var_dump($arrM);
 						if ($arrM['torrent_info_hash'] !== '') {
 							echo '<tr><td>';
-						    if ($arrM['verified']) { echo '<span class="glyphicon glyphicon-star-empty"></span>'; } else { echo ''; }
+							if ($arrM['verified']) { echo '<span class="glyphicon glyphicon-star-empty"></span>'; } else { echo ''; }
 							echo '</td><td>' . $arrM['torrent_info_hash'] . '</td><td><a href="/hash/?h=' . $arrM['torrent_info_hash'] . '" target="_blank">' . $arrM['torrent_name'] . '</a></td><td>' . $categories[$arrM['category_id']] . '</td><td><a href="magnet:?xt=urn:btih:' . $arrM['torrent_info_hash'] . '&dn=' . urlencode($arrM['torrent_name']) . '&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce" target="_blank" title="Download magnet"><span class="glyphicon glyphicon-cloud-download"></span></a></td><td><a href="' . $arrM['torrent_download_url'] . '" target="_blank" title="Download .torrent from TorCache"><span class="glyphicon glyphicon-floppy-save"></span></a></td><td><a href="http://torrage.info/torrent.php?h=' . $arrM['torrent_info_hash'] . '" target="_blank" title="Download .torrent from Torrage"><img src="https://pximg.xyz/images/eb36d60350eb5c2ba9a8f8f3572237f6.png"></img></a></td><td><a href="http://itorrents.org/torrent/' . $arrM['torrent_info_hash'] . '.torrent" target="_blank" title="Download .torrent from iTorrents"><img src="https://pximg.xyz/images/ecc3e659112104c1bae3e39f2c98bc01.png"></img></a></td></tr>';
 						}
 					}

@@ -20,7 +20,7 @@ set_time_limit(0)
 
 			$db_conn = \funcs\Functions::conn();
 
-			$f = fopen("import_lists/".$db_type."dump.txt", "r") or exit("Unable to open file!<br/> DT-ERROR: E001" .$db_type);
+			$f = fopen("import_lists/".$db_type."dump.txt", "r") or exit("Unable to open file!<br/> DT-ERROR: E001".$db_type);
 
 			$i = 0;
 			//echo '<table class="table"><th>torrent_info_hash</th><th>torrent_name</th><th>torrent_category</th><th>torrent_info_url</th><th>torrent_download_url</th><th>size</th><th>category_id</th><th>files_count</th><th>upload_date</th><th>verified</th>';
@@ -32,7 +32,7 @@ set_time_limit(0)
 				//echo '<tr><td>' . $arrM[0] . '</td><td>' . $arrM[1] . '</td><td>' . $arrM[2] . '</td><td><span>' . $arrM[3] . '</span></td><td>' . $arrM[4] . '</td><td>' . $arrM[5] . '</td><td>' . $arrM[6] . '</td><td>' . $arrM[7] . '</td><td>' . $arrM[10] . '</td><td>' . $arrM[11] . '</td></tr>';
 				$sql = "INSERT INTO t_collection (torrent_info_hash, torrent_name, torrent_category, torrent_info_url, torrent_download_url, size, category_id, files_count, upload_date, verified) VALUES ('$arrM[0]','$arrM[1]','$arrM[2]','$arrM[3]','$arrM[4]','$arrM[5]','$arrM[6]','$arrM[7]','$arrM[10]','$arrM[11]')";
 
-				$res = \funcs\Functions::query($db_conn, $sql) ;
+				$res = \funcs\Functions::query($db_conn, $sql);
 				$i++;
 				if (!$res) {
 					echo '

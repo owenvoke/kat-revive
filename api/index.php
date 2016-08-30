@@ -4,7 +4,7 @@
 	include ('../funcs.php');
 	if (isset($_GET['h']) && !empty($_GET['h']) && strlen($_GET['h']) == 40) {
 		$db_conn = \funcs\Functions::conn();
-		$sql     = "SELECT * FROM t_collection WHERE torrent_info_hash='" . mysqli_real_escape_string($db_conn, $_GET['h']) . "'";
+		$sql     = "SELECT * FROM t_collection WHERE torrent_info_hash='".mysqli_real_escape_string($db_conn, $_GET['h'])."'";
 		$res     = \funcs\Functions::query($db_conn, $sql);
 
 		while ($row = mysqli_fetch_assoc($res)) {
@@ -32,7 +32,7 @@
 		}
 
 		if (isset($_GET['q']) && !empty($_GET['q'])) {
-			$query = "WHERE torrent_name LIKE '%" . mysqli_real_escape_string($db_conn, $_GET['q']) . "%' ";
+			$query = "WHERE torrent_name LIKE '%".mysqli_real_escape_string($db_conn, $_GET['q'])."%' ";
 		}
 		else {
 			$query = '';
@@ -40,22 +40,22 @@
 
 		if (isset($_GET['c']) && !empty($_GET['c'])) {
 			if ($query !== '') {
-				$category = "AND category_id = " . mysqli_real_escape_string($db_conn, $_GET['c']) . " ";
+				$category = "AND category_id = ".mysqli_real_escape_string($db_conn, $_GET['c'])." ";
 			}
 			else {
-				$category = "WHERE category_id = " . mysqli_real_escape_string($db_conn, $_GET['c']) . " ";
+				$category = "WHERE category_id = ".mysqli_real_escape_string($db_conn, $_GET['c'])." ";
 			}
 		}
 		else {
 			$category = '';
 		}
 
-		$sql     = "SELECT * FROM t_collection " . $query . $category . "LIMIT " . mysqli_real_escape_string($db_conn, $startPoint) . ", 20";
+		$sql = "SELECT * FROM t_collection ".$query.$category."LIMIT ".mysqli_real_escape_string($db_conn, $startPoint).", 20";
 		if (isset($_GET['debug']) && !empty($_GET['debug']) && $_GET['debug'] == 'awfj23th1hgewjgojgqpow3f0j3tq') {
 			echo $sql;
 			exit();
 		}
-		$res     = \funcs\Functions::query($db_conn, $sql);
+		$res = \funcs\Functions::query($db_conn, $sql);
 
 		while ($row = mysqli_fetch_assoc($res)) {
 			if ($row['torrent_info_hash'] !== '') {
@@ -75,8 +75,8 @@
 		);
 	}
 	if (isset($_GET["pretty"]) && $_GET["pretty"] == "true") {
-	    echo json_encode($data, JSON_PRETTY_PRINT);
-        }
-        else {
-            echo json_encode($data);
-        }
+		echo json_encode($data, JSON_PRETTY_PRINT);
+		}
+		else {
+			echo json_encode($data);
+		}
