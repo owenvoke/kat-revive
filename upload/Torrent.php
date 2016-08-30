@@ -7,11 +7,14 @@ function parse_torrent($s) {
 	$str = $s;
 //    echo $str{0};
 	if ($str{0} == 'd') {
-	   $str = substr($str,1);
+	   $str = substr($str, 1);
 	   $ret = array();
 	   while (strlen($str) && $str{0} != 'e') {
 		  $key = parse_torrent($str);
-		  if (strlen($str) == strlen($s)) break; // prevent endless cycle if no changes made
+		  if (strlen($str) == strlen($s)) {
+		  	break;
+		  }
+		  // prevent endless cycle if no changes made
 		  if (!strcmp($key, "info")) {
 			  $save = $str;
 		  }
@@ -25,19 +28,19 @@ function parse_torrent($s) {
 		  if (!strcmp($key, "pieces")) {
 			  $value = explode("====",
 						 substr(
-						   chunk_split( $value, 20, "===="),
+						   chunk_split($value, 20, "===="),
 						   0, -4
 						 )
 					   );
 		  };
 		  $ret[$key] = $value;
 	   }
-	   $str = substr($str,1);
+	   $str = substr($str, 1);
 	   return $ret;
 	} else if ($str{0} == 'i') {
 //       echo "_";
-	   $ret = substr($str, 1, strpos($str, "e")-1);
-	   $str = substr($str, strpos($str, "e")+1);
+	   $ret = substr($str, 1, strpos($str, "e") - 1);
+	   $str = substr($str, strpos($str, "e") + 1);
 	   return $ret;
 	} else if ($str{0} == 'l') {
 //       echo "#";
@@ -45,16 +48,19 @@ function parse_torrent($s) {
 	   $str = substr($str, 1);
 	   while (strlen($str) && $str{0} != 'e') {
 		  $value = parse_torrent($str);
-		  if (strlen($str) == strlen($s)) break; // prevent endless cycle if no changes made
+		  if (strlen($str) == strlen($s)) {
+		  	break;
+		  }
+		  // prevent endless cycle if no changes made
 		  $ret[] = $value;
 	   }
-	   $str = substr($str,1);
+	   $str = substr($str, 1);
 	   return $ret;
 	} else if (is_numeric($str{0})) {
 //       echo "@";
 	   $namelen = substr($str, 0, strpos($str, ":"));
-	   $name = substr($str, strpos($str, ":")+1, $namelen);
-	   $str = substr($str, strpos($str, ":")+1+$namelen);
+	   $name = substr($str, strpos($str, ":") + 1, $namelen);
+	   $str = substr($str, strpos($str, ":") + 1 + $namelen);
 	   return $name;
 	}                                
 }
