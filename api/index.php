@@ -20,33 +20,28 @@
 			$data['category_id'] = $row['category_id'];
 			$data['size'] = $row['size'];
 		}
-	}
-	else {
+	} else {
 		$db_conn = \funcs\Functions::conn();
 
 		if (isset($_GET['s']) && !empty($_GET['s'])) {
 			$startPoint = $_GET['s'];
-		}
-		else {
+		} else {
 			$startPoint = "0";
 		}
 
 		if (isset($_GET['q']) && !empty($_GET['q'])) {
 			$query = "WHERE torrent_name LIKE '%".mysqli_real_escape_string($db_conn, $_GET['q'])."%' ";
-		}
-		else {
+		} else {
 			$query = '';
 		}
 
 		if (isset($_GET['c']) && !empty($_GET['c'])) {
 			if ($query !== '') {
 				$category = "AND category_id = ".mysqli_real_escape_string($db_conn, $_GET['c'])." ";
-			}
-			else {
+			} else {
 				$category = "WHERE category_id = ".mysqli_real_escape_string($db_conn, $_GET['c'])." ";
 			}
-		}
-		else {
+		} else {
 			$category = '';
 		}
 
@@ -76,7 +71,6 @@
 	}
 	if (isset($_GET["pretty"]) && $_GET["pretty"] == "true") {
 		echo json_encode($data, JSON_PRETTY_PRINT);
-		}
-		else {
+		} else {
 			echo json_encode($data);
 		}
