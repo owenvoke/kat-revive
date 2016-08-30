@@ -18,7 +18,7 @@
 			
 				$sql_output = "INSERT INTO `t_collection` (`torrent_info_hash`, `torrent_name`, `torrent_category`, `torrent_info_url`, `torrent_download_url`, `size`, `category_id`, `files_count`, `upload_date`, `verified`) VALUES \n";
 				
-				$f = fopen("import_lists/".$db_type."dump.txt", "r") or exit("Unable to open file!<br/> DT-ERROR: E001" .$db_type);
+				$f = fopen("import_lists/".$db_type."dump.txt", "r") or exit("Unable to open file!<br/> DT-ERROR: E001".$db_type);
 				$i = 0;
 				
 				$fname = "sql_imports/sql_import_".date("Y-m-d_H.i.s").".sql";
@@ -41,8 +41,7 @@
 						mysqli_real_escape_string($db_conn, $arrM[10])."','";
 						if (isset($arrM[11]) && $arrM[11] !== '') {
 							$sql_output .= mysqli_real_escape_string($db_conn, $arrM[11]);
-						}
-						else {
+						} else {
 							$sql_output .= date("Y-M-d H:m:s");
 						}
 						
@@ -64,8 +63,7 @@
 					<p><a href="index.php">Go to Index</a></p>
 				</div>
 				<?php
-			}
-			else {
+			} else {
 				?>
 				<div class="alert alert-danger">
 					<h2>No database type present.</h2>

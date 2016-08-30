@@ -65,8 +65,7 @@
 								</p>
 							</div>
 						<?php
-					}
-					else {
+					} else {
 						?>
 							<div class="alert alert-danger">
 								<h2>Data not available. Please import a datadump.</h2>
@@ -84,8 +83,7 @@
 							</div>
 						<?php
 					}
-				}
-				else { ?>
+				} else { ?>
 				<div class="alert alert-danger">
 					<h2>KatRevive requires the MySQLi extension to be active.</h2>
 					<h4>Please enable this in your PHP.</h4>
