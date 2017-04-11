@@ -1,6 +1,6 @@
 {
   "name": "pxgamer/katrevive",
-  "description": "A ",
+  "description": "A project to allow revival of the Kickass Torrents API dumps.",
   "minimum-stability": "stable",
   "license": "MIT",
   "require": {
