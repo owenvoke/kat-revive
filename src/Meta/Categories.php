@@ -1,0 +1,102 @@
+<?php
+
+namespace pxgamer\KatRevive\Meta;
+
+class Categories
+{
+    public static $List = [
+        "57" => "TV",
+        "19" => "Movies > Videos",
+        "20" => "Movies > Movie clips",
+        "22" => "Movies > Handheld",
+        "69" => "Movies > iPad",
+        "23" => "Movies > Highres Movies",
+        "90" => "Movies > UltraHD",
+        "24" => "Movies > Bollywood",
+        "62" => "Movies > Concerts",
+        "63" => "Movies > Dubbed Movies",
+        "64" => "Movies > Asian",
+        "100" => "Movies > Sport",
+        "18" => "Movies > 3D Movies",
+        "86" => "Movies > Animation",
+        "46" => "Movies > Documentary",
+        "47" => "Movies > Trailer",
+        "25" => "Movies > Other Movies",
+        "31" => "Games > PC",
+        "32" => "Games > Mac",
+        "94" => "Games > Linux",
+        "74" => "Games > Xbox ONE",
+        "34" => "Games > Xbox 360",
+        "45" => "Games > PS3",
+        "35" => "Games > Wii",
+        "36" => "Games > Handheld",
+        "40" => "Games > NDS",
+        "44" => "Games > PSP",
+        "76" => "Games > PS Vita",
+        "58" => "Games > iOS",
+        "59" => "Games > Android",
+        "37" => "Games > Other Games",
+        "26" => "Applications > Windows",
+        "27" => "Applications > Mac",
+        "28" => "Applications > UNIX",
+        "78" => "Applications > Linux",
+        "60" => "Applications > iOS",
+        "61" => "Applications > Android",
+        "29" => "Applications > Handheld",
+        "30" => "Applications > Other Applications",
+        "49" => "Music > MP3",
+        "75" => "Music > AAC",
+        "15" => "Music > Lossless",
+        "72" => "Music > Transcode",
+        "73" => "Music > Soundtrack",
+        "82" => "Music > Radio Shows",
+        "87" => "Music > Karaoke",
+        "16" => "Music > Other Music",
+        "92" => "Books",
+        "38" => "Books > Ebooks",
+        "39" => "Books > Comics",
+        "99" => "Books > Manga",
+        "50" => "Books > Magazines",
+        "51" => "Books > Textbooks",
+        "53" => "Books > Fiction",
+        "54" => "Books > Non-Fiction",
+        "13" => "Books > Audio books",
+        "56" => "Books > Academic",
+        "79" => "Books > Poetry",
+        "80" => "Books > Newspapers",
+        "96" => "Books > Cooking",
+        "95" => "Books > Sport",
+        "91" => "Books > Programming",
+        "52" => "Books > Other Books",
+        "101" => "Anime > Movie",
+        "84" => "Anime > English Translated",
+        "85" => "Anime > Anime Music Video",
+        "48" => "Anime > Other Anime",
+        "65" => "XXX > Video",
+        "70" => "XXX > HD Video",
+        "89" => "XXX > UltraHD",
+        "66" => "XXX > Pictures",
+        "67" => "XXX > Magazines",
+        "68" => "XXX > Books",
+        "43" => "XXX > Hentai",
+        "83" => "XXX > Games",
+        "17" => "XXX > Other XXX",
+        "8" => "Other > Pictures",
+        "14" => "Other > Sound clips",
+        "41" => "Other > Covers",
+        "42" => "Other > Wallpapers",
+        "71" => "Other > Tutorials",
+        "81" => "Other > Subtitles",
+        "88" => "Other > Fonts",
+        "55" => "Other > Unsorted"
+    ];
+
+    public static function byId($id = null)
+    {
+        if (is_int($id) && isset(self::$List[$id])) {
+            return self::$List[$id];
+        }
+
+        return 'Unknown';
+    }
+}

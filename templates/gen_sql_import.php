@@ -60,7 +60,7 @@
 				?>
 				<div class="alert alert-success">
 					<p>Added <?php echo $i; ?> to <a href="<?php echo $fname; ?>"><?php echo $fname; ?></a> in <?php echo number_format(microtime(true) - $startTime, 4); ?> seconds.</p>
-					<p><a href="index.php">Go to Index</a></p>
+					<p><a href="../public/index.php">Go to Index</a></p>
 				</div>
 				<?php
 			} else {

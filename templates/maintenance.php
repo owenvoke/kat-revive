@@ -4,7 +4,7 @@
 		<meta name="viewport" content="initial-scale=1.0,width=device-width">
 		<meta name="HandheldFriendly" content="true"/>
 		<title>KatRevive [Maintenance]</title>
-		<link rel="shortcut icon" href="/favicon.png">
+		<link rel="shortcut icon" href="/public/favicon.png">
 		<meta name="theme-color" content="#594c2d">
 		<style>
 			body { text-align: center; font: 20px Helvetica, sans-serif; color: #333; }

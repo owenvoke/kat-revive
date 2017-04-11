@@ -146,7 +146,7 @@
 							</p>
 						</div>
 
-						<form action="/hash" method="get">
+						<form action="/templates/hash" method="get">
 							<div class="form-group">
 								<input name="h" type="text" class="form-control" placeholder="Search">
 							</div>

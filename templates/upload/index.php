@@ -74,11 +74,11 @@ function addTorrentToDB($torrent_content = '', $db_conn = false)
 <div class="alert alert-success">
 <p><?php echo $torrent['torrent_name'];
 				?> was imported successfully.</p>
-<p><a href="/hash/?h=<?php echo $torrent['torrent_info_hash'];
+<p><a href="/templates/hash?h=<?php echo $torrent['torrent_info_hash'];
 				?>">Click to view torrent.</a></p>
 <?php if ($file_count == 0 || $total_size == 0 || $torrent_data['info']['name']) {
 	?>
-<p><a href="/edit/?h=<?php echo $torrent['torrent_info_hash'];
+<p><a href="/templates/edit?h=<?php echo $torrent['torrent_info_hash'];
 	?>">Torrent was missing some details, please edit them here.</a></p>
 <?php
 

@@ -33,7 +33,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	    <ul class="nav navbar-nav">
-        <li><a href="/hash/">Hash Search</a></li>
+        <li><a href="/templates/hash">Hash Search</a></li>
         <form class="navbar-form navbar-left" role="search" action="/search" method="get">
           <div class="form-group">
             <input name="q" type="text" class="form-control" placeholder="Search">
@@ -45,11 +45,11 @@
 				<li class="dropdown">
           	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span></a>
           	<ul class="dropdown-menu">
-							<li><a href="/hash/"><span class="glyphicon glyphicon-flash"></span> Hash Search</a></li>
-							<li><a href="/upload/"><span class="glyphicon glyphicon-open"></span> Upload Torrent</a></li>
+							<li><a href="/templates/hash"><span class="glyphicon glyphicon-flash"></span> Hash Search</a></li>
+							<li><a href="/templates/upload"><span class="glyphicon glyphicon-open"></span> Upload Torrent</a></li>
 	            <li role="separator" class="divider"></li>
-	            <li><a href="/api/" target="_blank"><span class="glyphicon glyphicon-book"></span> API</a></li>
-	            <li><a href="/cron/exports/"><span class="glyphicon glyphicon-cloud-download"></span> Data Dumps</a></li>
+	            <li><a href="/templates/api" target="_blank"><span class="glyphicon glyphicon-book"></span> API</a></li>
+	            <li><a href="/templates/cron/exports"><span class="glyphicon glyphicon-cloud-download"></span> Data Dumps</a></li>
 							<li role="separator" class="divider"></li>
 							<li><a href="#" data-toggle="modal" data-target="#kat_theme"><span class="glyphicon glyphicon-eye-open"></span> <?php if (isset($_COOKIE['kat_theme']) && $_COOKIE['kat_theme'] != '') {
 	?>Disable KAT Theme<?php

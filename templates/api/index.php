@@ -1,7 +1,7 @@
 <?php
 	header('Content-Type: application/json');
 
-	include ('../funcs.php');
+	include('../funcs.php');
 	if (isset($_GET['h']) && !empty($_GET['h']) && strlen($_GET['h']) == 40) {
 		$db_conn = \funcs\Functions::conn();
 		$sql     = "SELECT * FROM t_collection WHERE torrent_info_hash='".mysqli_real_escape_string($db_conn, $_GET['h'])."'";
