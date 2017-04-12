@@ -67,7 +67,8 @@
                 <tr>
                     <td><p><strong>Magnet Link: </strong></td>
                     <td>
-                        <a href="{pxgamer\KatRevive\Meta\Torrents::magnet($torrent['torrent_info_hash'], $torrent['torrent_name'])}"<span>magnet:?xt=urn:btih:{$torrent['torrent_info_hash']}&dn={$torrent['torrent_name']}</span></a>
+                        <a href="{pxgamer\KatRevive\Meta\Torrents::magnet($torrent['torrent_info_hash'], $torrent['torrent_name'])}"<span>magnet:?xt=urn:btih:{$torrent['torrent_info_hash']}
+                            &dn={$torrent['torrent_name']}</span></a>
                     </td>
                 </tr>
                 <tr>
@@ -80,6 +81,16 @@
                 </tr>
             </table>
         </div>
+        {if $torrent['description']}
+            <div class="panel panel-default panel-collapse">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-target="#description">
+                    <strong>Description</strong>
+                </div>
+                <div id="description" class="panel-body collapse">
+                    <div>{$torrent['description']}</div>
+                </div>
+            </div>
+        {/if}
     {elseif $error === 1}
         <div class="alert alert-danger">
             <h1>Invalid Hash Provided</h1>
