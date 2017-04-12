@@ -49,7 +49,7 @@ set_time_limit(0)
 			?>
 			<div class="alert alert-success">
 				<p><?php echo $i; ?> Torrents Imported in <?php echo number_format(microtime(true) - $startTime, 4); ?> seconds.</p>
-				<p><a href="index.php">Go to Index</a></p>
+				<p><a href="index.tpl">Go to Index</a></p>
 			</div>
 		</div>
 	</body>

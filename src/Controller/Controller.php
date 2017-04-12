@@ -3,6 +3,7 @@
 namespace pxgamer\KatRevive\Controller;
 
 use pxgamer\KatRevive\Db;
+use System\Request;
 
 /**
  * Class Controller
@@ -13,15 +14,15 @@ class Controller
     /**
      * @var \mysqli
      */
-    private $connection;
+    protected $connection;
     /**
      * @var \Smarty
      */
-    private $smarty;
+    protected $smarty;
 
     public function __construct()
     {
-        foreach (\System\Request::instance() as $item => $value) {
+        foreach (Request::instance() as $item => $value) {
             $this->$item = $value;
         }
 

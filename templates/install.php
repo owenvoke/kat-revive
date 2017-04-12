@@ -61,7 +61,7 @@
 								<p>
 									Database is already set up, and torrents have been imported successfully.
 									<br/>
-									<a href="index.php" class="alert-link">Go to Index</a>
+									<a href="index.tpl" class="alert-link">Go to Index</a>
 								</p>
 							</div>
 						<?php

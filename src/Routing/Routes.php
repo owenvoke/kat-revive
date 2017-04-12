@@ -2,8 +2,6 @@
 
 namespace pxgamer\KatRevive\Routing;
 
-use pxgamer\KatRevive\Controller\Torrents;
-
 /**
  * Class Routes
  * @package pxgamer\KatRevive\Routing
@@ -20,6 +18,7 @@ class Routes
     public static function register(\System\Route $Routes)
     {
         $Routes->any('/', [self::CONTROLLERS . 'Torrents', 'index']);
+        $Routes->any('/torrent/{hash}', [self::CONTROLLERS . 'Torrents', 'show']);
 
         return $Routes;
     }

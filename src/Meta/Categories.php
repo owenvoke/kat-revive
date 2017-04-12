@@ -93,7 +93,7 @@ class Categories
 
     public static function byId($id = null)
     {
-        if (is_int($id) && isset(self::$List[$id])) {
+        if ($id && isset(self::$List[$id])) {
             return self::$List[$id];
         }
 
