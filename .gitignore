@@ -1,3 +1,4 @@
 /composer.lock
 /.idea
 /vendor
+/templates_c
