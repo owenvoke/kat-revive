@@ -26,13 +26,13 @@
                     </a>
                 </td>
                 <td>
-                    <a href="http://torrage.info/torrent.php?h={$torrent['torrent_info_hash']}" target="_blank"
+                    <a href="https://torrage.info/torrent.php?h={$torrent['torrent_info_hash']}" target="_blank"
                        title="Download .torrent from Torrage">
                         <span class="fa fa-fw fa-download text-success"></span>
                     </a>
                 </td>
                 <td>
-                    <a href="http://itorrents.org/torrent/'.$arrM['torrent_info_hash'].'.torrent" target="_blank"
+                    <a href="https://itorrents.org/torrent/{$torrent['torrent_info_hash']}.torrent" target="_blank"
                        title="Download .torrent from iTorrents">
                         <span class="fa fa-fw fa-download text-warning"></span>
                     </a>
