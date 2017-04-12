@@ -18,7 +18,7 @@ class Routes
     public static function register(\System\Route $Routes)
     {
         $Routes->any('/', [self::CONTROLLERS . 'Torrents', 'index']);
-        $Routes->any('/torrent/{hash}', [self::CONTROLLERS . 'Torrents', 'show']);
+        $Routes->any(['/torrent/{hash}', '/torrent'], [self::CONTROLLERS . 'Torrents', 'show']);
 
         // Default 404
         $Routes->any('/*', [self::CONTROLLERS . 'Controller', 'error_404']);
