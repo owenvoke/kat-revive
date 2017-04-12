@@ -20,6 +20,9 @@ class Routes
         $Routes->any('/', [self::CONTROLLERS . 'Torrents', 'index']);
         $Routes->any('/torrent/{hash}', [self::CONTROLLERS . 'Torrents', 'show']);
 
+        // Default 404
+        $Routes->any('/*', [self::CONTROLLERS . 'Controller', 'error_404']);
+
         return $Routes;
     }
 }

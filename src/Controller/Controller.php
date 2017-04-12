@@ -38,9 +38,12 @@ class Controller
 
     }
 
-    public function error()
+    public function error_404()
     {
+        $error_code = 'Error 404';
+        $error_text = 'Page not found.';
 
+        $this->smarty->display('error.tpl', ['error_code' => $error_code, 'error_text' => $error_text]);
     }
 
     private function smarty_init()
