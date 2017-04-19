@@ -6,6 +6,15 @@
             <div class="form-group">
                 <input type="file" name="torrent[]" multiple>
             </div>
+            <div class="form-group">
+                <label for="category_id">Category:</label>
+                <select name="category_id" id="category_id" class="form-control">
+                    <option value="55">-- Unsorted --</option>
+                    {foreach $categories as $key=>$value}
+                        <option value="{$key}">{$value}</option>
+                    {/foreach}
+                </select>
+            </div>
             <button type="submit" name="submit" class="btn btn-default"><span
                         class="glyphicon glyphicon-cloud-upload"></span> Upload .torrent file
             </button>

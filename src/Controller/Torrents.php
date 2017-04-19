@@ -108,14 +108,17 @@ class Torrents extends Controller
                                 'files_count' => $file_count,
                             );
                             $stmt = $this->connection->prepare("INSERT INTO t_collection (
-                                                    torrent_info_hash, torrent_name, size, files_count, upload_date) VALUES
-                                                    (:info_hash, :torrent_name, :size, :files, :date)");
+                                                    torrent_info_hash, torrent_name, size, files_count, upload_date, category_id) VALUES
+                                                    (:info_hash, :torrent_name, :size, :files, :date, :category_id)");
 
                             $stmt->bindParam(':info_hash', $torrent['torrent_info_hash'], \PDO::PARAM_STR);
                             $stmt->bindParam(':torrent_name', $torrent['torrent_name'], \PDO::PARAM_STR);
                             $stmt->bindParam(':size', $torrent['size'], \PDO::PARAM_INT);
                             $stmt->bindParam(':files', $torrent['files_count'], \PDO::PARAM_INT);
                             $stmt->bindParam(':date', $torrent['upload_date'], \PDO::PARAM_STR);
+
+                            $category = isset($_POST['category_id']) ? (int)$_POST['category_id'] : 55;
+                            $stmt->bindParam(':category_id', $category, \PDO::PARAM_INT);
 
                             $status->success = $stmt->execute();
                             $status->torrent = $torrent;
@@ -133,14 +136,13 @@ class Torrents extends Controller
                         $uploaded[] = $status;
                     }
                 }
-            }
         }
-
-        $this->smarty->display(
-            'torrents/upload.tpl',
-            [
-                'uploaded' => $uploaded
-            ]
-        );
     }
+
+$this->smarty->display(
+'torrents/upload.tpl',
+['uploaded' => $uploaded,
+'categories' => Meta\Categories::$List]
+);
+}
 }
