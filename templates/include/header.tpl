@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="/favicon.png">
     <meta name="theme-color" content="#594c2d">
     <link rel="stylesheet" type="text/css"
-          href="/assets/css/bootstrap.min.css"/>
+          href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css"
           href="/assets/css/font-awesome.min.css">
     <script src="/assets/js/jquery-2.2.4.min.js"
