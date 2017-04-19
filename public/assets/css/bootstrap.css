@@ -6146,3 +6146,34 @@ button.close {
 .urls-column {
     width: 75px
 }
+
+.f-upload-btn {
+    position: relative;
+    height: 50px;
+    width: 400px;
+    text-align: center;
+}
+
+.f-upload-btn input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.f-upload-btn label {
+    font-family: arial, sans-serif;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+#category_id {
+    max-width: 400px;
+}

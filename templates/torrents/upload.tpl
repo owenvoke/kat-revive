@@ -4,7 +4,10 @@
     <div class="panel-group">
         <form action="" method="POST" enctype="multipart/form-data">
             <div class="form-group">
-                <input type="file" name="torrent[]" multiple>
+                <div class="f-upload-btn btn btn-lg btn-default">
+                    <label for="torrent"><span class="fa fa-fw fa-upload"></span> Select torrent files</label>
+                    <input id="torrent" name="torrent[]" multiple type="file" class="upload">
+                </div>
             </div>
             <div class="form-group">
                 <label for="category_id">Category:</label>
@@ -15,8 +18,9 @@
                     {/foreach}
                 </select>
             </div>
-            <button type="submit" name="submit" class="btn btn-default"><span
-                        class="glyphicon glyphicon-cloud-upload"></span> Upload .torrent file
+            <button type="submit" name="submit" class="btn btn-default">
+                <span class="fa fa-fw fa-upload"></span>
+                Upload
             </button>
         </form>
     </div>
@@ -42,7 +46,12 @@
             {else}
                 <div class="alert alert-danger">
                     <p>Failed to import torrent with hash {$status->torrent['torrent_info_hash']}.</p>
-                    <pre>{$status|print_r:true}</pre>
+                    <p>Possible reasons for this are:</p>
+                    <ul>
+                        <li>Torrent may already exist</li>
+                        <li>Torrent may be corrupted in some way</li>
+                        <li>Another, unknown error occurred</li>
+                    </ul>
                 </div>
             {/if}
         {/foreach}
