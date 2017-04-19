@@ -13,7 +13,7 @@
         <tbody>
         {foreach $torrents as $torrent}
             <tr>
-                <td>{if $torrent['verified']}<span class="glyphicon glyphicon-star-empty"></span>{/if}</td>
+                <td>{if $torrent['verified']}<span class="fa fa-fw fa-star"></span>{/if}</td>
                 <td>{$torrent['torrent_info_hash']}</td>
                 <td>
                     <a href="/torrent/{$torrent['torrent_info_hash']}" target="_blank">{$torrent['torrent_name']}</a>
@@ -22,7 +22,7 @@
                 <td>
                     <a href="{pxgamer\KatRevive\Meta\Torrents::magnet($torrent['torrent_info_hash'], $torrent['torrent_name'])}"
                        target="_blank" title="Download magnet">
-                        <span class="glyphicon glyphicon-cloud-download"></span>
+                        <span class="fa fa-fw fa-cloud-download"></span>
                     </a>
                 </td>
                 <td>

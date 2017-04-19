@@ -30,24 +30,24 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false"><span class="glyphicon glyphicon-cog"></span></a>
+                       aria-expanded="false"><span class="fa fa-fw fa-cog"></span></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="/torrent">
-                                <span class="glyphicon glyphicon-flash"></span>
+                                <span class="fa fa-fw fa-flash"></span>
                                 Hash Search
                             </a>
                         </li>
-                        <li><a href="/upload"><span class="glyphicon glyphicon-open"></span> Upload
+                        <li><a href="/upload"><span class="fa fa-fw fa-upload"></span> Upload
                                 Torrent</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="/api" target="_blank"><span class="glyphicon glyphicon-book"></span> API</a>
+                        <li><a href="/api" target="_blank"><span class="fa fa-fw fa-book"></span> API</a>
                         </li>
-                        <li><a href="/exports"><span class="glyphicon glyphicon-cloud-download"></span>
+                        <li><a href="/exports"><span class="fa fa-fw fa-cloud-download"></span>
                                 Data Dumps</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="#" data-toggle="modal" data-target="#kat_theme">
-                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="fa fa-fw fa-paint-brush"></span>
                                 {if isset($_COOKIE['kat_theme'])}
                                     Enable
                                 {else}
@@ -58,7 +58,7 @@
                         <li role="separator" class="divider"></li>
                         <li>
                             <a href="https://github.com/PXgamer/KatRevive/issues/" target="_blank">
-                                <span class="glyphicon glyphicon-alert"></span> Report Issue
+                                <span class="fa fa-fw fa-warning"></span> Report Issue
                             </a>
                         </li>
                     </ul>

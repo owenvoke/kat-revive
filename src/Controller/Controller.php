@@ -31,6 +31,10 @@ class Controller
 
         // Initialise Smarty config
         $this->smarty_init();
+
+        if (isset($_COOKIE['kat_theme'])) {
+            define('KAT_THEME', true);
+        }
     }
 
     public function index()

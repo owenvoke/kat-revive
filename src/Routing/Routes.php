@@ -19,6 +19,7 @@ class Routes
     {
         $Routes->any('/', [self::CONTROLLERS . 'Torrents', 'index']);
         $Routes->any(['/torrent/{hash}', '/torrent'], [self::CONTROLLERS . 'Torrents', 'show']);
+        $Routes->any(['/upload'], [self::CONTROLLERS . 'Torrents', 'upload']);
 
         // Default 404
         $Routes->any('/*', [self::CONTROLLERS . 'Controller', 'error_404']);

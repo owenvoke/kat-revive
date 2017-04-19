@@ -2,6 +2,8 @@
 
 namespace pxgamer\KatRevive\Controller;
 
+use pxgamer\KatRevive\Meta;
+
 class Torrents extends Controller
 {
     public function index()
@@ -42,18 +44,102 @@ class Torrents extends Controller
         $stmt->bindValue(':hash', $hash, \PDO::PARAM_STR);
         $stmt->execute();
 
-        $torrent = $stmt->fetch();
+        $data = new \stdClass();
 
-        $error = false;
+        $data->torrent = $stmt->fetch();
+
+        $data->error = false;
 
         if (strlen($hash) !== 40) {
-            $error = 1;
+            $data->error = 1;
         }
+
+        if (isset($data->torrent['size'])) {
+            $data->torrent['size'] = Meta\Torrents::file_size($data->torrent['size']);
+        }
+
         $this->smarty->display(
             'torrents/show.tpl',
             [
-                'torrent' => $torrent,
-                'error' => $error
+                'data' => $data
+            ]
+        );
+    }
+
+    public function upload()
+    {
+        $uploaded = [];
+
+        if (isset($_FILES['torrent']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+            if (isset($_FILES['torrent']['name']) && $_FILES['torrent']['size'] > 0) {
+                $len = count($_FILES['torrent']['name']);
+
+                for ($i = 0; $i < $len; ++$i) {
+                    if (!file_exists($_FILES['torrent']['tmp_name'][$i])) {
+                        continue;
+                    }
+
+                    $torrent_content = file_get_contents($_FILES['torrent']['tmp_name'][$i]);
+
+                    if ($torrent_content !== null) {
+                        $status = new \stdClass();
+                        $status->success = false;
+                        $torrent_data = Meta\Torrents::parse($torrent_content);
+
+                        $file_count = 1;
+                        $total_size = 1;
+                        if (isset($torrent_data['info']['files']) && $torrent_data['info']['files'] !== null) { // Check if files param exists
+                            for ($j = 0; $j < count($torrent_data['info']['files']) - 1; ++$j) {
+                                $total_size = $total_size + (int)$torrent_data['info']['files'][$j]['length'];
+                            }
+                            $file_count = count($torrent_data['info']['files']);
+                        }
+
+                        if (isset($total_size) && isset($torrent_data['info_hash']) && isset($torrent_data['info']['name'])) {
+                            if (!isset($torrent_data['creation date'])) {
+                                $torrent_data['creation date'] = date('now');
+                            }
+
+                            $torrent = array(
+                                'torrent_name' => $torrent_data['info']['name'],
+                                'torrent_info_hash' => strtoupper($torrent_data['info_hash']),
+                                'size' => $total_size,
+                                'upload_date' => $torrent_data['creation date'],
+                                'files_count' => $file_count,
+                            );
+                            $stmt = $this->connection->prepare("INSERT INTO t_collection (
+                                                    torrent_info_hash, torrent_name, size, files_count, upload_date) VALUES
+                                                    (:info_hash, :torrent_name, :size, :files, :date)");
+
+                            $stmt->bindParam(':info_hash', $torrent['torrent_info_hash'], \PDO::PARAM_STR);
+                            $stmt->bindParam(':torrent_name', $torrent['torrent_name'], \PDO::PARAM_STR);
+                            $stmt->bindParam(':size', $torrent['size'], \PDO::PARAM_INT);
+                            $stmt->bindParam(':files', $torrent['files_count'], \PDO::PARAM_INT);
+                            $stmt->bindParam(':date', $torrent['upload_date'], \PDO::PARAM_STR);
+
+                            $status->success = $stmt->execute();
+                            $status->torrent = $torrent;
+
+                            if (!$status->success) {
+                                $status->error = $stmt->errorInfo();
+                            }
+                        } else {
+                            $status->error = Meta\Torrents::ERROR_INCORRECT_BSON;
+                        }
+
+                        if (!isset($status->torrent['torrent_name'])) {
+                            $status->torrent['torrent_name'] = $_FILES['torrent']['name'];
+                        }
+                        $uploaded[] = $status;
+                    }
+                }
+            }
+        }
+
+        $this->smarty->display(
+            'torrents/upload.tpl',
+            [
+                'uploaded' => $uploaded
             ]
         );
     }

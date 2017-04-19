@@ -8,15 +8,18 @@
     <link rel="shortcut icon" href="/favicon.png">
     <meta name="theme-color" content="#594c2d">
     <link rel="stylesheet" type="text/css"
-          href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+          href="/assets/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css"
-          href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="//code.jquery.com/jquery-2.2.4.min.js"
+          href="/assets/css/font-awesome.min.css">
+    <script src="/assets/js/jquery-2.2.4.min.js"
             type="text/javascript"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+    <script src="/assets/js/bootstrap.min.js"
             type="text/javascript"></script>
-    {if isset($_COOKIE['kat_theme'])}{include file='include/kat_theme.tpl'}{/if}
+    <script src="/assets/js/main.js"
+            type="text/javascript"></script>
+    {if $smarty.const.KAT_THEME}
+        {include file='include/kat_theme.tpl'}
+    {/if}
 </head>
-
 <body>
 {include file='include/nav.tpl'}
