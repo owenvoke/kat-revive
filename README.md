@@ -1,7 +1,7 @@
 # KatRevive
 
 [![Build Status](https://travis-ci.org/PXgamer/KatRevive.svg?branch=master)](https://travis-ci.org/PXgamer/KatRevive)
-[![Licence](https://img.shields.io/github/license/PXgamer/KatRevive.svg?maxAge=2592000)](https://github.com/PXgamer/KatRevive/blob/master/LICENCE.md)
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg)](https://opensource.org/licenses/mit-license)   
 
 ## About
 KatRevive is a project to allow revival of the Kickass Torrents API dumps.
@@ -11,11 +11,11 @@ I apologise for this, but KatRevive will be down permanently from this [location
 Ok DMCA, you win. Enough with the bullshit. It's gone.  
 
 ## Files
-#### create_db.sql
+#### [resources/create_db.sql](resources/create_db.sql)
 This is the MySQL code needed to generate the database. By default, the username is *root* and the password is blank.  
 To use this, copy it into a MySQL terminal instance, or copy it into PHPMyAdmin or your respective MySQL manager.  
 
-#### index.php
+#### [public/index.php](public/index.php)
 This is the root file, and the file that you will use to view torrents. You can access other torrents by using the `GET` parameter of `s`.  
 This layout shows 5 columns.
 - Verified: Displayed as a star
@@ -28,7 +28,7 @@ This layout shows 5 columns.
 The installer file. Just run this, and select an import type.  
 *Please note, these will need to be downloaded beforehand and added to the `import_lists` folder.*  
 
-There are 2 example [import files](https://github.com/PXgamer/KatRevive/tree/master/import_lists) with the same torrent, to demonstrate. The actual imports can be downloaded elsewhere.
+There are 2 example [import files](resources/import_lists) with the same torrent, to demonstrate. The actual imports can be downloaded elsewhere.
 
 Just select the type you want to import, and hit the import button.
 
@@ -75,35 +75,24 @@ The database is called `kat_db` by default and contains a single table `t_collec
 - verified
 
 ## Hourly Dump Format
-   | TYPE			| FORMATE
----|----------|--------------
-0  | HASH			| [VARCHAR]
-1  | TITLE			| [VARCHAR]
-2  | CATEGORY 		| [VARCHAR]
-3  | KAT URL		| [VARCHAR]
-4  | TORCACHE URL	| [VARCHAR]
-5  | SIZE (Bytes)	| [BIGINT]
-6  | Category ID	| [INT]
-7  | Num of Files	| [INT]
-8  | UNKNOWN		| [INT]
-9  | UNKNOWN		| [INT]
-10 | DATE IN SECS	| [BIGINT]
-11 | VERIFIED		| [INT]
+
+Column | TYPE			| FORMAT
+------ | -------------- | ----------
+0      | HASH			| [VARCHAR]
+1      | TITLE			| [VARCHAR]
+2      | CATEGORY 		| [VARCHAR]
+3      | KAT URL		| [VARCHAR]
+4      | TORCACHE URL	| [VARCHAR]
+5      | SIZE (Bytes)	| [BIGINT]
+6      | Category ID	| [INT]
+7      | Num of Files	| [INT]
+8      | UNKNOWN		| [INT]
+9      | UNKNOWN		| [INT]
+10     | DATE IN SECS	| [BIGINT]
+11     | VERIFIED		| [INT]
 
 ## Other Features
 The API: https://github.com/PXgamer/KatRevive/tree/master/api  
 Main Search: https://github.com/PXgamer/KatRevive/tree/master/search  
 Hash Searching: https://github.com/PXgamer/KatRevive/tree/master/hash  
-MySQL Import Generation: https://github.com/PXgamer/KatRevive/tree/master/sql_imports  
-
-## Gallery
-#### Main Page
-![Index Image](https://pximg.xyz/images/ee2b0357f515d530c7c46acc71d6d287.png)  
-#### Individual Torrent Pages
-![Individual Torrent Pages](https://pximg.xyz/images/fd181e06a5f5d4de7f0d6199e1a22c35.png)  
-#### Main Search System
-![Main Search](https://pximg.xyz/images/172911e84f10ddd93d3e41c02373bff6.png)  
-#### API Results
-![API Results](https://pximg.xyz/images/4dd5c7daf945c110945dcda6fad03dd9.png)  
-#### KAT Header Theme
-![KAT Header Theme](https://pximg.xyz/images/5bc7939c5fd0e74703b7b7e289dcab2e.png)
+MySQL Import Generation: https://github.com/PXgamer/KatRevive/tree/master/sql_imports
