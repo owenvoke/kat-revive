@@ -1,6 +1,7 @@
 # Main Search
 
-## Using the search
+**Using the search**
+
 The main search has 2 optional parameter, these are the `GET` parameters `q` (query) and `c` (category).
 
 For example, you could search for `search/?q=Step&c=57` would show up `Stephen Colbert 2016 05 16 Jason Sudeikis 720p HDTV x264-CROOKS[rartv]`.

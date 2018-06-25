@@ -1,6 +1,7 @@
 # Hash Search
 
-## Using the search
+**Using the search**
+
 The hash search requires a single parameter, this is the `GET` parameter `h`.  
 
 The `h` parameter refers to the `torrent_info_hash` in the db.

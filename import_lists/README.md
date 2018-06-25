@@ -1,6 +1,7 @@
 # Import Files
 
-These are the files to import into the database. They must be named one of the below:  
+These are the files to import into the database. They must be named one of the below:
+
 - dailydump.txt
 - hourlydump.txt
 
