@@ -22,24 +22,24 @@ This can take a while depending on the number of torrents your file contains, I 
 
 ## Usage
 
-### Hourly Dump Format
+**Hourly Dump Format**
 
-Column | Type           | Format
------- | -------------- | ---------
-0      | HASH           | [VARCHAR]
-1      | TITLE          | [VARCHAR]
-2      | CATEGORY       | [VARCHAR]
-3      | KAT URL        | [VARCHAR]
-4      | TORCACHE URL   | [VARCHAR]
-5      | SIZE (Bytes)   | [BIGINT]
-6      | Category ID    | [INT]
-7      | Num of Files   | [INT]
-8      | UNKNOWN        | [INT]
-9      | UNKNOWN        | [INT]
-10     | DATE IN SECS   | [BIGINT]
-11     | VERIFIED       | [INT]
+Column | Type            | Format
+------ | --------------- | ---------
+0      | Torrent hash    | VARCHAR
+1      | Title           | VARCHAR
+2      | Category        | VARCHAR
+3      | KAT URL         | VARCHAR
+4      | Torcache URL    | VARCHAR
+5      | Size (Bytes)    | BIGINT
+6      | Category ID     | INT
+7      | Number of files | INT
+8      | UNKNOWN         | INT
+9      | UNKNOWN         | INT
+10     | Unix timestamp  | BIGINT
+11     | Verified        | INT
 
-### Other Features
+**Other Features**
 
 - The API: https://github.com/pxgamer/kat-revive/tree/master/api  
 - Main Search: https://github.com/pxgamer/kat-revive/tree/master/search  
