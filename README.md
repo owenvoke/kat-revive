@@ -24,20 +24,20 @@ This can take a while depending on the number of torrents your file contains, I 
 
 ### Hourly Dump Format
 
-Column | TYPE			| FORMATE
+Column | Type           | Format
 ------ | -------------- | ---------
-0      | HASH			| [VARCHAR]
-1      | TITLE			| [VARCHAR]
-2      | CATEGORY 		| [VARCHAR]
-3      | KAT URL		| [VARCHAR]
-4      | TORCACHE URL	| [VARCHAR]
-5      | SIZE (Bytes)	| [BIGINT]
-6      | Category ID	| [INT]
-7      | Num of Files	| [INT]
-8      | UNKNOWN		| [INT]
-9      | UNKNOWN		| [INT]
-10     | DATE IN SECS	| [BIGINT]
-11     | VERIFIED		| [INT]
+0      | HASH           | [VARCHAR]
+1      | TITLE          | [VARCHAR]
+2      | CATEGORY       | [VARCHAR]
+3      | KAT URL        | [VARCHAR]
+4      | TORCACHE URL   | [VARCHAR]
+5      | SIZE (Bytes)   | [BIGINT]
+6      | Category ID    | [INT]
+7      | Num of Files   | [INT]
+8      | UNKNOWN        | [INT]
+9      | UNKNOWN        | [INT]
+10     | DATE IN SECS   | [BIGINT]
+11     | VERIFIED       | [INT]
 
 ### Other Features
 
