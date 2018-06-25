@@ -1,11 +1,8 @@
 # KatRevive
 
-[![GetBadges Game](https://pxgamer-katrevive.getbadges.io/shield/company/pxgamer-katrevive/user/8445)](https://pxgamer-katrevive.getbadges.io/) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/PXgamer/KatRevive/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/PXgamer/KatRevive/)
-[![Build Status](https://scrutinizer-ci.com/g/PXgamer/KatRevive/badges/build.png?b=master)](https://github.com/PXgamer/KatRevive/releases/latest)
-[![Contributors](https://img.shields.io/github/contributors/PXgamer/KatRevive.svg?maxAge=2592000)](https://github.com/PXgamer/KatRevive)
-[![Licence](https://img.shields.io/github/license/PXgamer/KatRevive.svg?maxAge=2592000)](https://github.com/PXgamer/KatRevive/blob/master/LICENCE.md)
-[![Issues \[Open\]](https://img.shields.io/github/issues/PXgamer/KatRevive.svg?maxAge=2592000)](https://github.com/PXgamer/KatRevive/issues/)
-[![Issues \[Closed\]](https://img.shields.io/github/issues-closed/PXgamer/KatRevive.svg?maxAge=2592000)](https://github.com/PXgamer/KatRevive/issues?q=is%3Aissue+is%3Aclosed)
+[![Software License][ico-license]](LICENSE.md)
+[![Issues \[Open\]][ico-issues-open]][link-issues-open]
+[![Issues \[Closed\]][ico-issues-closed]][link-issues-closed]
 
 ## About
 KatRevive is a project to allow revival of the Kickass Torrents API dumps.
@@ -111,3 +108,10 @@ MySQL Import Generation: https://github.com/PXgamer/KatRevive/tree/master/sql_im
 ![API Results](https://pximg.xyz/images/4dd5c7daf945c110945dcda6fad03dd9.png)  
 #### KAT Header Theme
 ![KAT Header Theme](https://pximg.xyz/images/5bc7939c5fd0e74703b7b7e289dcab2e.png)
+
+[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
+[ico-issues-open]: https://img.shields.io/github/issues/pxgamer/KatRevive.svg?style=flat-square
+[ico-issues-closed]: https://img.shields.io/github/issues-closed/pxgamer/KatRevive.svg?style=flat-square
+
+[link-issues-open]: https://github.com/PXgamer/KatRevive/issues
+[link-issues-closed]: https://github.com/PXgamer/KatRevive/issues?q=is%3Aissue+is%3Aclosed
