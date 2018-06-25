@@ -1,8 +1,8 @@
 # KatRevive
 
 [![Software License][ico-license]](LICENSE.md)
-[![Issues \[Open\]][ico-issues-open]][link-issues-open]
-[![Issues \[Closed\]][ico-issues-closed]][link-issues-closed]
+[![Open Issues][ico-issues-open]][link-issues-open]
+[![Closed Issues][ico-issues-closed]][link-issues-closed]
 
 ## About
 KatRevive is a project to allow revival of the Kickass Torrents API dumps.
