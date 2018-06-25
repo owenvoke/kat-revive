@@ -41,10 +41,10 @@ Column | Type            | Format
 
 **Other Features**
 
-- The API: https://github.com/pxgamer/kat-revive/tree/master/api  
-- Main Search: https://github.com/pxgamer/kat-revive/tree/master/search  
-- Hash Searching: https://github.com/pxgamer/kat-revive/tree/master/hash  
-- MySQL Import Generation: https://github.com/pxgamer/kat-revive/tree/master/sql_imports
+- [The API](api)
+- [Main Search](search)
+- [Hash Searching](hash)
+- [MySQL Import Generation](sql_imports)
 
 ## Security
 
