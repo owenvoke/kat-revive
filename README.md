@@ -20,7 +20,9 @@ Open the `install.php` file in a browser, and check that no errors appear, if no
 
 This can take a while depending on the number of torrents your file contains, I tested with 3 Million+ torrents in the data dump I had, which took roughly 5 minutes, alternatively you can generate a MySQL import file using the `gen_sql_import.php` file.  
 
-## Hourly Dump Format
+## Usage
+
+### Hourly Dump Format
 
 Column | TYPE			| FORMATE
 ------ | -------------- | ---------
@@ -37,23 +39,12 @@ Column | TYPE			| FORMATE
 10     | DATE IN SECS	| [BIGINT]
 11     | VERIFIED		| [INT]
 
-## Other Features
-The API: https://github.com/PXgamer/KatRevive/tree/master/api  
-Main Search: https://github.com/PXgamer/KatRevive/tree/master/search  
-Hash Searching: https://github.com/PXgamer/KatRevive/tree/master/hash  
-MySQL Import Generation: https://github.com/PXgamer/KatRevive/tree/master/sql_imports  
+### Other Features
 
-## Gallery
-#### Main Page
-![Index Image](https://pximg.xyz/images/ee2b0357f515d530c7c46acc71d6d287.png)  
-#### Individual Torrent Pages
-![Individual Torrent Pages](https://pximg.xyz/images/fd181e06a5f5d4de7f0d6199e1a22c35.png)  
-#### Main Search System
-![Main Search](https://pximg.xyz/images/172911e84f10ddd93d3e41c02373bff6.png)  
-#### API Results
-![API Results](https://pximg.xyz/images/4dd5c7daf945c110945dcda6fad03dd9.png)  
-#### KAT Header Theme
-![KAT Header Theme](https://pximg.xyz/images/5bc7939c5fd0e74703b7b7e289dcab2e.png)
+- The API: https://github.com/PXgamer/KatRevive/tree/master/api  
+- Main Search: https://github.com/PXgamer/KatRevive/tree/master/search  
+- Hash Searching: https://github.com/PXgamer/KatRevive/tree/master/hash  
+- MySQL Import Generation: https://github.com/PXgamer/KatRevive/tree/master/sql_imports
 
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-issues-open]: https://img.shields.io/github/issues/pxgamer/KatRevive.svg?style=flat-square
