@@ -65,4 +65,4 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 [link-issues-open]: https://github.com/pxgamer/kat-revive/issues
 [link-issues-closed]: https://github.com/pxgamer/kat-revive/issues?q=is%3Aissue+is%3Aclosed
-__
+
