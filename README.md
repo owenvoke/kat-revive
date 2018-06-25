@@ -1,4 +1,4 @@
-# KatRevive
+# kat-revive
 
 [![Software License][ico-license]](LICENSE.md)
 [![Open Issues][ico-issues-open]][link-issues-open]
@@ -8,7 +8,7 @@ KatRevive is a project to allow revival of the Kickass Torrents API dumps.
 
 ## Install
 
-Clone to your local or remote server using `git clone https://github.com/pxgamer/KatRevive.git`.  
+Clone to your local or remote server using `git clone https://github.com/pxgamer/kat-revive.git`.  
 
 I have set this up to use MySQL with a username of `root` and no password. This can be changed in the `funcs.php` file, or during the install process.   
 
@@ -41,10 +41,10 @@ Column | Type           | Format
 
 ### Other Features
 
-- The API: https://github.com/pxgamer/KatRevive/tree/master/api  
-- Main Search: https://github.com/pxgamer/KatRevive/tree/master/search  
-- Hash Searching: https://github.com/pxgamer/KatRevive/tree/master/hash  
-- MySQL Import Generation: https://github.com/pxgamer/KatRevive/tree/master/sql_imports
+- The API: https://github.com/pxgamer/kat-revive/tree/master/api  
+- Main Search: https://github.com/pxgamer/kat-revive/tree/master/search  
+- Hash Searching: https://github.com/pxgamer/kat-revive/tree/master/hash  
+- MySQL Import Generation: https://github.com/pxgamer/kat-revive/tree/master/sql_imports
 
 ## Security
 
@@ -60,8 +60,9 @@ If you discover any security related issues, please email owzie123@gmail.com ins
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-issues-open]: https://img.shields.io/github/issues/pxgamer/KatRevive.svg?style=flat-square
-[ico-issues-closed]: https://img.shields.io/github/issues-closed/pxgamer/KatRevive.svg?style=flat-square
+[ico-issues-open]: https://img.shields.io/github/issues/pxgamer/kat-revive.svg?style=flat-square
+[ico-issues-closed]: https://img.shields.io/github/issues-closed/pxgamer/kat-revive.svg?style=flat-square
 
-[link-issues-open]: https://github.com/PXgamer/KatRevive/issues
-[link-issues-closed]: https://github.com/PXgamer/KatRevive/issues?q=is%3Aissue+is%3Aclosed
+[link-issues-open]: https://github.com/pxgamer/kat-revive/issues
+[link-issues-closed]: https://github.com/pxgamer/kat-revive/issues?q=is%3Aissue+is%3Aclosed
+__
