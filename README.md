@@ -46,6 +46,19 @@ Column | TYPE			| FORMATE
 - Hash Searching: https://github.com/PXgamer/KatRevive/tree/master/hash  
 - MySQL Import Generation: https://github.com/PXgamer/KatRevive/tree/master/sql_imports
 
+## Security
+
+If you discover any security related issues, please email owzie123@gmail.com instead of using the issue tracker.
+
+## Credits
+
+- [pxgamer][link-author]
+- [All Contributors][link-contributors]
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-issues-open]: https://img.shields.io/github/issues/pxgamer/KatRevive.svg?style=flat-square
 [ico-issues-closed]: https://img.shields.io/github/issues-closed/pxgamer/KatRevive.svg?style=flat-square
