@@ -8,15 +8,16 @@ KatRevive is a project to allow revival of the Kickass Torrents API dumps.
 
 ## Install
 
-Clone to your local or remote server using `git clone https://github.com/pxgamer/kat-revive.git`.  
+Via Git
 
-I have set this up to use MySQL with a username of `root` and no password. This can be changed in the `funcs.php` file, or during the install process.   
+```bash
+git clone https://github.com/pxgamer/kat-revive.git
+```  
 
-Next, copy the code out of the `create_db.sql` file and run this in your MySQL administration tool. For example, in PHPMyAdmin, navigate to the SQL tab for the database, and paste it there. Then run this. 
-
-Copy your `hourlydump.txt` and/or `dailydump.txt` file(s) to the `import_lists` folder.  
-
-Open the `install.php` file in a browser, and check that no errors appear, if not, select the file you'd like to install. Then click `import`.  
+1. Set your details in the `funcs.php` file (it will also ask during the install if it's unable to connect).
+2. Copy the SQL out of the `create_db.sql` file and run this in your MySQL administration tool.
+3. Copy your `hourlydump.txt` and/or `dailydump.txt` file(s) to the `import_lists` folder.  
+4. Open the `install.php` file in a browser, and check that no errors appear, if not, select the file you'd like to install. Then click `import`.  
 
 This can take a while depending on the number of torrents your file contains, I tested with 3 Million+ torrents in the data dump I had, which took roughly 5 minutes, alternatively you can generate a MySQL import file using the `gen_sql_import.php` file.  
 
