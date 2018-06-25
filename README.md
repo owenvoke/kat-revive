@@ -21,20 +21,21 @@ Open the `install.php` file in a browser, and check that no errors appear, if no
 This can take a while depending on the number of torrents your file contains, I tested with 3 Million+ torrents in the data dump I had, which took roughly 5 minutes, alternatively you can generate a MySQL import file using the `gen_sql_import.php` file.  
 
 ## Hourly Dump Format
-   | TYPE			| FORMATE
----|----------|--------------
-0  | HASH			| [VARCHAR]
-1  | TITLE			| [VARCHAR]
-2  | CATEGORY 		| [VARCHAR]
-3  | KAT URL		| [VARCHAR]
-4  | TORCACHE URL	| [VARCHAR]
-5  | SIZE (Bytes)	| [BIGINT]
-6  | Category ID	| [INT]
-7  | Num of Files	| [INT]
-8  | UNKNOWN		| [INT]
-9  | UNKNOWN		| [INT]
-10 | DATE IN SECS	| [BIGINT]
-11 | VERIFIED		| [INT]
+
+Column | TYPE			| FORMATE
+------ | -------------- | ---------
+0      | HASH			| [VARCHAR]
+1      | TITLE			| [VARCHAR]
+2      | CATEGORY 		| [VARCHAR]
+3      | KAT URL		| [VARCHAR]
+4      | TORCACHE URL	| [VARCHAR]
+5      | SIZE (Bytes)	| [BIGINT]
+6      | Category ID	| [INT]
+7      | Num of Files	| [INT]
+8      | UNKNOWN		| [INT]
+9      | UNKNOWN		| [INT]
+10     | DATE IN SECS	| [BIGINT]
+11     | VERIFIED		| [INT]
 
 ## Other Features
 The API: https://github.com/PXgamer/KatRevive/tree/master/api  
